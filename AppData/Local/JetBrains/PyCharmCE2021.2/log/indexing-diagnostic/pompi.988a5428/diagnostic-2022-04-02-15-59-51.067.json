@@ -1,0 +1,210 @@
+{
+  "appInfo" : {
+    "build" : "212.5457.59",
+    "buildDate" : "2021-10-19T14:26:22.189Z[UTC]",
+    "productCode" : "PC",
+    "generated" : "2022-04-02T13:59:51.0674226Z",
+    "os" : "Windows 10 10.0",
+    "runtime" : "JetBrains s.r.o. 11.0.12 11.0.12+7-b1504.40"
+  },
+  "runtimeInfo" : {
+    "maxMemory" : 2075918336,
+    "numberOfProcessors" : 16,
+    "maxNumberOfIndexingThreads" : 4,
+    "maxSizeOfFileForIntelliSense" : 2560000,
+    "maxSizeOfFileForContentLoading" : 20971520
+  },
+  "projectIndexingHistory" : {
+    "projectName" : "crm.py",
+    "times" : {
+      "indexingReason" : "On refresh of 42824 files",
+      "totalUpdatingTime" : 45863689900,
+      "indexingTime" : 45840888200,
+      "contentLoadingTime" : 1453849519,
+      "scanFilesTime" : 11728500,
+      "pushPropertiesTime" : 0,
+      "indexExtensionsTime" : 0,
+      "updatingStart" : "2022-04-02T13:59:05.2035956Z",
+      "updatingEnd" : "2022-04-02T13:59:51.0674226Z",
+      "totalSuspendedTime" : 0,
+      "wasInterrupted" : false
+    },
+    "fileCount" : {
+      "numberOfFileProviders" : 1,
+      "numberOfScannedFiles" : 42824,
+      "numberOfFilesIndexedByInfrastructureExtensionsDuringScan" : 0,
+      "numberOfFilesScheduledForIndexingAfterScan" : 42824,
+      "numberOfFilesIndexedByInfrastructureExtensionsDuringIndexingStage" : 9896,
+      "numberOfFilesIndexedWithLoadingContent" : 42824
+    },
+    "totalStatsPerFileType" : [ {
+      "fileType" : "Python",
+      "partOfTotalProcessingTime" : {
+        "part" : 183134369400,
+        "total" : 183134369400
+      },
+      "partOfTotalContentLoadingTime" : {
+        "part" : 5808133500,
+        "total" : 5808133500
+      },
+      "totalNumberOfFiles" : 42824,
+      "totalFilesSize" : 550969866,
+      "indexingSpeed" : {
+        "totalBytes" : 550969866,
+        "totalTime" : 183134369400
+      },
+      "biggestContributors" : [ {
+        "providerName" : "Refreshed files",
+        "numberOfFiles" : 42824,
+        "totalFilesSize" : 550969866,
+        "partOfTotalProcessingTimeOfThisFileType" : {
+          "part" : 183134369400,
+          "total" : 183134369400
+        }
+      } ]
+    } ],
+    "totalStatsPerIndexer" : [ {
+      "indexId" : "Stubs",
+      "partOfTotalIndexingTime" : {
+        "part" : 161817389300,
+        "total" : 163801104700
+      },
+      "totalNumberOfFiles" : 42824,
+      "totalNumberOfFilesIndexedByExtensions" : 9896,
+      "totalFilesSize" : 550969866,
+      "indexingSpeed" : {
+        "totalBytes" : 550969866,
+        "totalTime" : 161817389300
+      },
+      "snapshotInputMappingStats" : {
+        "totalRequests" : 0,
+        "totalMisses" : 0,
+        "totalHits" : 0
+      }
+    }, {
+      "indexId" : "Trigram.Index",
+      "partOfTotalIndexingTime" : {
+        "part" : 1026682900,
+        "total" : 163801104700
+      },
+      "totalNumberOfFiles" : 42824,
+      "totalNumberOfFilesIndexedByExtensions" : 9896,
+      "totalFilesSize" : 550969866,
+      "indexingSpeed" : {
+        "totalBytes" : 550969866,
+        "totalTime" : 1026682900
+      },
+      "snapshotInputMappingStats" : {
+        "totalRequests" : 0,
+        "totalMisses" : 0,
+        "totalHits" : 0
+      }
+    }, {
+      "indexId" : "IdIndex",
+      "partOfTotalIndexingTime" : {
+        "part" : 572902900,
+        "total" : 163801104700
+      },
+      "totalNumberOfFiles" : 42820,
+      "totalNumberOfFilesIndexedByExtensions" : 9896,
+      "totalFilesSize" : 550892767,
+      "indexingSpeed" : {
+        "totalBytes" : 550892767,
+        "totalTime" : 572902900
+      },
+      "snapshotInputMappingStats" : {
+        "totalRequests" : 0,
+        "totalMisses" : 0,
+        "totalHits" : 0
+      }
+    }, {
+      "indexId" : "TodoIndex",
+      "partOfTotalIndexingTime" : {
+        "part" : 384129600,
+        "total" : 163801104700
+      },
+      "totalNumberOfFiles" : 42820,
+      "totalNumberOfFilesIndexedByExtensions" : 9896,
+      "totalFilesSize" : 550892767,
+      "indexingSpeed" : {
+        "totalBytes" : 550892767,
+        "totalTime" : 384129600
+      },
+      "snapshotInputMappingStats" : {
+        "totalRequests" : 0,
+        "totalMisses" : 0,
+        "totalHits" : 0
+      }
+    } ],
+    "scanningStatistics" : [ {
+      "providerName" : "Refreshed files",
+      "numberOfScannedFiles" : 42824,
+      "numberOfSkippedFiles" : 0,
+      "numberOfFilesForIndexing" : 42824,
+      "numberOfFilesFullyIndexedByInfrastructureExtensions" : 0,
+      "scanningTime" : 11728500,
+      "timeProcessingUpToDateFiles" : 0,
+      "timeUpdatingContentLessIndexes" : 0,
+      "timeIndexingWithoutContent" : 0
+    } ],
+    "fileProviderStatistics" : [ {
+      "providerName" : "Refreshed files",
+      "totalNumberOfIndexedFiles" : 42824,
+      "totalNumberOfFilesFullyIndexedByExtensions" : 9896,
+      "totalIndexingTime" : 45840856600,
+      "contentLoadingTime" : 1453849519,
+      "numberOfTooLargeForIndexingFiles" : 0,
+      "slowIndexedFiles" : [ {
+        "fileName" : "bench_solvers.py",
+        "processingTime" : 819803900,
+        "indexingTime" : 816402700,
+        "contentLoadingTime" : 215400
+      }, {
+        "fileName" : "sine.py",
+        "processingTime" : 871397000,
+        "indexingTime" : 864890900,
+        "contentLoadingTime" : 333800
+      }, {
+        "fileName" : "test_setops.py",
+        "processingTime" : 1002458000,
+        "indexingTime" : 52197300,
+        "contentLoadingTime" : 92200
+      }, {
+        "fileName" : "test_arithmetic.py",
+        "processingTime" : 952036500,
+        "indexingTime" : 951617700,
+        "contentLoadingTime" : 108600
+      }, {
+        "fileName" : "test_trinomials.py",
+        "processingTime" : 1999107100,
+        "indexingTime" : 1988345200,
+        "contentLoadingTime" : 781100
+      }, {
+        "fileName" : "constraints.py",
+        "processingTime" : 3138780900,
+        "indexingTime" : 3133423500,
+        "contentLoadingTime" : 174300
+      }, {
+        "fileName" : "test_trinomials.py",
+        "processingTime" : 2021839100,
+        "indexingTime" : 2011193900,
+        "contentLoadingTime" : 717500
+      }, {
+        "fileName" : "test_ops.py",
+        "processingTime" : 1008676100,
+        "indexingTime" : 1008204800,
+        "contentLoadingTime" : 84800
+      }, {
+        "fileName" : "test_timedelta.py",
+        "processingTime" : 1005583700,
+        "indexingTime" : 1005047800,
+        "contentLoadingTime" : 110100
+      }, {
+        "fileName" : "constraints.py",
+        "processingTime" : 3007005200,
+        "indexingTime" : 3001711500,
+        "contentLoadingTime" : 160000
+      } ]
+    } ]
+  }
+}

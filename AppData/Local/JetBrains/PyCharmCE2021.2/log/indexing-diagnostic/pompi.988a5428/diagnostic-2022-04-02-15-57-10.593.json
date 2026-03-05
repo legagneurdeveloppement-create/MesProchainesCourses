@@ -1,0 +1,876 @@
+{
+  "appInfo" : {
+    "build" : "212.5457.59",
+    "buildDate" : "2021-10-19T14:26:22.189Z[UTC]",
+    "productCode" : "PC",
+    "generated" : "2022-04-02T13:57:10.593381Z",
+    "os" : "Windows 10 10.0",
+    "runtime" : "JetBrains s.r.o. 11.0.12 11.0.12+7-b1504.40"
+  },
+  "runtimeInfo" : {
+    "maxMemory" : 2075918336,
+    "numberOfProcessors" : 16,
+    "maxNumberOfIndexingThreads" : 4,
+    "maxSizeOfFileForIntelliSense" : 2560000,
+    "maxSizeOfFileForContentLoading" : 20971520
+  },
+  "projectIndexingHistory" : {
+    "projectName" : "crm.py",
+    "times" : {
+      "indexingReason" : "On project open",
+      "totalUpdatingTime" : 77582286400,
+      "indexingTime" : 74258427300,
+      "contentLoadingTime" : 19604788764,
+      "scanFilesTime" : 3253474000,
+      "pushPropertiesTime" : 0,
+      "indexExtensionsTime" : 0,
+      "updatingStart" : "2022-04-02T13:55:53.0106365Z",
+      "updatingEnd" : "2022-04-02T13:57:10.593381Z",
+      "totalSuspendedTime" : 0,
+      "wasInterrupted" : false
+    },
+    "fileCount" : {
+      "numberOfFileProviders" : 5,
+      "numberOfScannedFiles" : 587690,
+      "numberOfFilesIndexedByInfrastructureExtensionsDuringScan" : 0,
+      "numberOfFilesScheduledForIndexingAfterScan" : 122519,
+      "numberOfFilesIndexedByInfrastructureExtensionsDuringIndexingStage" : 2818,
+      "numberOfFilesIndexedWithLoadingContent" : 122512
+    },
+    "totalStatsPerFileType" : [ {
+      "fileType" : "textmate",
+      "partOfTotalProcessingTime" : {
+        "part" : 86631014400,
+        "total" : 296204898400
+      },
+      "partOfTotalContentLoadingTime" : {
+        "part" : 33178561500,
+        "total" : 78200870100
+      },
+      "totalNumberOfFiles" : 53641,
+      "totalFilesSize" : 576821562,
+      "indexingSpeed" : {
+        "totalBytes" : 576821562,
+        "totalTime" : 86631014400
+      },
+      "biggestContributors" : [ {
+        "providerName" : "Module 'pompi'",
+        "numberOfFiles" : 53641,
+        "totalFilesSize" : 576821562,
+        "partOfTotalProcessingTimeOfThisFileType" : {
+          "part" : 86631014400,
+          "total" : 86631014400
+        }
+      } ]
+    }, {
+      "fileType" : "HTML",
+      "partOfTotalProcessingTime" : {
+        "part" : 79553337400,
+        "total" : 296204898400
+      },
+      "partOfTotalContentLoadingTime" : {
+        "part" : 16469250800,
+        "total" : 78200870100
+      },
+      "totalNumberOfFiles" : 6154,
+      "totalFilesSize" : 207766695,
+      "indexingSpeed" : {
+        "totalBytes" : 207766695,
+        "totalTime" : 79553337400
+      },
+      "biggestContributors" : [ {
+        "providerName" : "Module 'pompi'",
+        "numberOfFiles" : 6154,
+        "totalFilesSize" : 207766695,
+        "partOfTotalProcessingTimeOfThisFileType" : {
+          "part" : 79553337400,
+          "total" : 79553337400
+        }
+      } ]
+    }, {
+      "fileType" : "XML",
+      "partOfTotalProcessingTime" : {
+        "part" : 59863035900,
+        "total" : 296204898400
+      },
+      "partOfTotalContentLoadingTime" : {
+        "part" : 17352662800,
+        "total" : 78200870100
+      },
+      "totalNumberOfFiles" : 31905,
+      "totalFilesSize" : 253065611,
+      "indexingSpeed" : {
+        "totalBytes" : 253065611,
+        "totalTime" : 59863035900
+      },
+      "biggestContributors" : [ {
+        "providerName" : "Module 'pompi'",
+        "numberOfFiles" : 31905,
+        "totalFilesSize" : 253065611,
+        "partOfTotalProcessingTimeOfThisFileType" : {
+          "part" : 59863035900,
+          "total" : 59863035900
+        }
+      } ]
+    }, {
+      "fileType" : "PLAIN_TEXT",
+      "partOfTotalProcessingTime" : {
+        "part" : 16272599900,
+        "total" : 296204898400
+      },
+      "partOfTotalContentLoadingTime" : {
+        "part" : 1568782400,
+        "total" : 78200870100
+      },
+      "totalNumberOfFiles" : 9055,
+      "totalFilesSize" : 138416151,
+      "indexingSpeed" : {
+        "totalBytes" : 138416151,
+        "totalTime" : 16272599900
+      },
+      "biggestContributors" : [ {
+        "providerName" : "Module 'pompi'",
+        "numberOfFiles" : 9055,
+        "totalFilesSize" : 138416151,
+        "partOfTotalProcessingTimeOfThisFileType" : {
+          "part" : 16272599900,
+          "total" : 16272599900
+        }
+      } ]
+    }, {
+      "fileType" : "Python",
+      "partOfTotalProcessingTime" : {
+        "part" : 12311471800,
+        "total" : 296204898400
+      },
+      "partOfTotalContentLoadingTime" : {
+        "part" : 2196166500,
+        "total" : 78200870100
+      },
+      "totalNumberOfFiles" : 3789,
+      "totalFilesSize" : 54097282,
+      "indexingSpeed" : {
+        "totalBytes" : 54097282,
+        "totalTime" : 12311471800
+      },
+      "biggestContributors" : [ {
+        "providerName" : "Module 'pompi'",
+        "numberOfFiles" : 3789,
+        "totalFilesSize" : 54097282,
+        "partOfTotalProcessingTimeOfThisFileType" : {
+          "part" : 12311471800,
+          "total" : 12311471800
+        }
+      } ]
+    }, {
+      "fileType" : "PythonStub",
+      "partOfTotalProcessingTime" : {
+        "part" : 11688438800,
+        "total" : 296204898400
+      },
+      "partOfTotalContentLoadingTime" : {
+        "part" : 1923282100,
+        "total" : 78200870100
+      },
+      "totalNumberOfFiles" : 5660,
+      "totalFilesSize" : 13773619,
+      "indexingSpeed" : {
+        "totalBytes" : 13773619,
+        "totalTime" : 11688438800
+      },
+      "biggestContributors" : [ {
+        "providerName" : "Module 'pompi'",
+        "numberOfFiles" : 5660,
+        "totalFilesSize" : 13773619,
+        "partOfTotalProcessingTimeOfThisFileType" : {
+          "part" : 11688438800,
+          "total" : 11688438800
+        }
+      } ]
+    }, {
+      "fileType" : "JavaScript",
+      "partOfTotalProcessingTime" : {
+        "part" : 8716781900,
+        "total" : 296204898400
+      },
+      "partOfTotalContentLoadingTime" : {
+        "part" : 1213793000,
+        "total" : 78200870100
+      },
+      "totalNumberOfFiles" : 2397,
+      "totalFilesSize" : 43190935,
+      "indexingSpeed" : {
+        "totalBytes" : 43190935,
+        "totalTime" : 8716781900
+      },
+      "biggestContributors" : [ {
+        "providerName" : "Module 'pompi'",
+        "numberOfFiles" : 2397,
+        "totalFilesSize" : 43190935,
+        "partOfTotalProcessingTimeOfThisFileType" : {
+          "part" : 8716781900,
+          "total" : 8716781900
+        }
+      } ]
+    }, {
+      "fileType" : "C++",
+      "partOfTotalProcessingTime" : {
+        "part" : 8464114600,
+        "total" : 296204898400
+      },
+      "partOfTotalContentLoadingTime" : {
+        "part" : 2064389800,
+        "total" : 78200870100
+      },
+      "totalNumberOfFiles" : 3619,
+      "totalFilesSize" : 58489666,
+      "indexingSpeed" : {
+        "totalBytes" : 58489666,
+        "totalTime" : 8464114600
+      },
+      "biggestContributors" : [ {
+        "providerName" : "Module 'pompi'",
+        "numberOfFiles" : 3619,
+        "totalFilesSize" : 58489666,
+        "partOfTotalProcessingTimeOfThisFileType" : {
+          "part" : 8464114600,
+          "total" : 8464114600
+        }
+      } ]
+    }, {
+      "fileType" : "JSON",
+      "partOfTotalProcessingTime" : {
+        "part" : 6108777600,
+        "total" : 296204898400
+      },
+      "partOfTotalContentLoadingTime" : {
+        "part" : 1044772700,
+        "total" : 78200870100
+      },
+      "totalNumberOfFiles" : 2265,
+      "totalFilesSize" : 28588917,
+      "indexingSpeed" : {
+        "totalBytes" : 28588917,
+        "totalTime" : 6108777600
+      },
+      "biggestContributors" : [ {
+        "providerName" : "Module 'pompi'",
+        "numberOfFiles" : 2265,
+        "totalFilesSize" : 28588917,
+        "partOfTotalProcessingTimeOfThisFileType" : {
+          "part" : 6108777600,
+          "total" : 6108777600
+        }
+      } ]
+    }, {
+      "fileType" : "SVG",
+      "partOfTotalProcessingTime" : {
+        "part" : 3080747500,
+        "total" : 296204898400
+      },
+      "partOfTotalContentLoadingTime" : {
+        "part" : 439995300,
+        "total" : 78200870100
+      },
+      "totalNumberOfFiles" : 1135,
+      "totalFilesSize" : 8307139,
+      "indexingSpeed" : {
+        "totalBytes" : 8307139,
+        "totalTime" : 3080747500
+      },
+      "biggestContributors" : [ {
+        "providerName" : "Module 'pompi'",
+        "numberOfFiles" : 1135,
+        "totalFilesSize" : 8307139,
+        "partOfTotalProcessingTimeOfThisFileType" : {
+          "part" : 3080747500,
+          "total" : 3080747500
+        }
+      } ]
+    }, {
+      "fileType" : "Markdown",
+      "partOfTotalProcessingTime" : {
+        "part" : 1384750800,
+        "total" : 296204898400
+      },
+      "partOfTotalContentLoadingTime" : {
+        "part" : 118809200,
+        "total" : 78200870100
+      },
+      "totalNumberOfFiles" : 223,
+      "totalFilesSize" : 2636645,
+      "indexingSpeed" : {
+        "totalBytes" : 2636645,
+        "totalTime" : 1384750800
+      },
+      "biggestContributors" : [ {
+        "providerName" : "Module 'pompi'",
+        "numberOfFiles" : 223,
+        "totalFilesSize" : 2636645,
+        "partOfTotalProcessingTimeOfThisFileType" : {
+          "part" : 1384750800,
+          "total" : 1384750800
+        }
+      } ]
+    }, {
+      "fileType" : "ReST",
+      "partOfTotalProcessingTime" : {
+        "part" : 879454700,
+        "total" : 296204898400
+      },
+      "partOfTotalContentLoadingTime" : {
+        "part" : 364868900,
+        "total" : 78200870100
+      },
+      "totalNumberOfFiles" : 1709,
+      "totalFilesSize" : 1909345,
+      "indexingSpeed" : {
+        "totalBytes" : 1909345,
+        "totalTime" : 879454700
+      },
+      "biggestContributors" : [ {
+        "providerName" : "Module 'pompi'",
+        "numberOfFiles" : 1709,
+        "totalFilesSize" : 1909345,
+        "partOfTotalProcessingTimeOfThisFileType" : {
+          "part" : 879454700,
+          "total" : 879454700
+        }
+      } ]
+    }, {
+      "fileType" : "CSS",
+      "partOfTotalProcessingTime" : {
+        "part" : 658490900,
+        "total" : 296204898400
+      },
+      "partOfTotalContentLoadingTime" : {
+        "part" : 96892500,
+        "total" : 78200870100
+      },
+      "totalNumberOfFiles" : 248,
+      "totalFilesSize" : 1141457,
+      "indexingSpeed" : {
+        "totalBytes" : 1141457,
+        "totalTime" : 658490900
+      },
+      "biggestContributors" : [ {
+        "providerName" : "Module 'pompi'",
+        "numberOfFiles" : 248,
+        "totalFilesSize" : 1141457,
+        "partOfTotalProcessingTimeOfThisFileType" : {
+          "part" : 658490900,
+          "total" : 658490900
+        }
+      } ]
+    }, {
+      "fileType" : "Properties",
+      "partOfTotalProcessingTime" : {
+        "part" : 386317200,
+        "total" : 296204898400
+      },
+      "partOfTotalContentLoadingTime" : {
+        "part" : 138464100,
+        "total" : 78200870100
+      },
+      "totalNumberOfFiles" : 514,
+      "totalFilesSize" : 737253,
+      "indexingSpeed" : {
+        "totalBytes" : 737253,
+        "totalTime" : 386317200
+      },
+      "biggestContributors" : [ {
+        "providerName" : "Module 'pompi'",
+        "numberOfFiles" : 514,
+        "totalFilesSize" : 737253,
+        "partOfTotalProcessingTimeOfThisFileType" : {
+          "part" : 386317200,
+          "total" : 386317200
+        }
+      } ]
+    }, {
+      "fileType" : "Shell Script",
+      "partOfTotalProcessingTime" : {
+        "part" : 88565700,
+        "total" : 296204898400
+      },
+      "partOfTotalContentLoadingTime" : {
+        "part" : 18333100,
+        "total" : 78200870100
+      },
+      "totalNumberOfFiles" : 162,
+      "totalFilesSize" : 160205,
+      "indexingSpeed" : {
+        "totalBytes" : 160205,
+        "totalTime" : 88565700
+      },
+      "biggestContributors" : [ {
+        "providerName" : "Module 'pompi'",
+        "numberOfFiles" : 162,
+        "totalFilesSize" : 160205,
+        "partOfTotalProcessingTimeOfThisFileType" : {
+          "part" : 88565700,
+          "total" : 88565700
+        }
+      } ]
+    }, {
+      "fileType" : "SQL",
+      "partOfTotalProcessingTime" : {
+        "part" : 64379000,
+        "total" : 296204898400
+      },
+      "partOfTotalContentLoadingTime" : {
+        "part" : 924300,
+        "total" : 78200870100
+      },
+      "totalNumberOfFiles" : 1,
+      "totalFilesSize" : 151552,
+      "indexingSpeed" : {
+        "totalBytes" : 151552,
+        "totalTime" : 64379000
+      },
+      "biggestContributors" : [ {
+        "providerName" : "Module 'pompi'",
+        "numberOfFiles" : 1,
+        "totalFilesSize" : 151552,
+        "partOfTotalProcessingTimeOfThisFileType" : {
+          "part" : 64379000,
+          "total" : 64379000
+        }
+      } ]
+    }, {
+      "fileType" : "C#",
+      "partOfTotalProcessingTime" : {
+        "part" : 25614900,
+        "total" : 296204898400
+      },
+      "partOfTotalContentLoadingTime" : {
+        "part" : 3271300,
+        "total" : 78200870100
+      },
+      "totalNumberOfFiles" : 4,
+      "totalFilesSize" : 154994,
+      "indexingSpeed" : {
+        "totalBytes" : 154994,
+        "totalTime" : 25614900
+      },
+      "biggestContributors" : [ {
+        "providerName" : "Module 'pompi'",
+        "numberOfFiles" : 4,
+        "totalFilesSize" : 154994,
+        "partOfTotalProcessingTimeOfThisFileType" : {
+          "part" : 25614900,
+          "total" : 25614900
+        }
+      } ]
+    }, {
+      "fileType" : "YAML",
+      "partOfTotalProcessingTime" : {
+        "part" : 17593800,
+        "total" : 296204898400
+      },
+      "partOfTotalContentLoadingTime" : {
+        "part" : 4031900,
+        "total" : 78200870100
+      },
+      "totalNumberOfFiles" : 12,
+      "totalFilesSize" : 45262,
+      "indexingSpeed" : {
+        "totalBytes" : 45262,
+        "totalTime" : 17593800
+      },
+      "biggestContributors" : [ {
+        "providerName" : "Module 'pompi'",
+        "numberOfFiles" : 12,
+        "totalFilesSize" : 45262,
+        "partOfTotalProcessingTimeOfThisFileType" : {
+          "part" : 17593800,
+          "total" : 17593800
+        }
+      } ]
+    }, {
+      "fileType" : "GitIgnore file",
+      "partOfTotalProcessingTime" : {
+        "part" : 6993000,
+        "total" : 296204898400
+      },
+      "partOfTotalContentLoadingTime" : {
+        "part" : 1604300,
+        "total" : 78200870100
+      },
+      "totalNumberOfFiles" : 17,
+      "totalFilesSize" : 6094,
+      "indexingSpeed" : {
+        "totalBytes" : 6094,
+        "totalTime" : 6993000
+      },
+      "biggestContributors" : [ {
+        "providerName" : "Module 'pompi'",
+        "numberOfFiles" : 17,
+        "totalFilesSize" : 6094,
+        "partOfTotalProcessingTimeOfThisFileType" : {
+          "part" : 6993000,
+          "total" : 6993000
+        }
+      } ]
+    }, {
+      "fileType" : "PATCH",
+      "partOfTotalProcessingTime" : {
+        "part" : 1965000,
+        "total" : 296204898400
+      },
+      "partOfTotalContentLoadingTime" : {
+        "part" : 1840000,
+        "total" : 78200870100
+      },
+      "totalNumberOfFiles" : 1,
+      "totalFilesSize" : 734,
+      "indexingSpeed" : {
+        "totalBytes" : 734,
+        "totalTime" : 1965000
+      },
+      "biggestContributors" : [ {
+        "providerName" : "Module 'pompi'",
+        "numberOfFiles" : 1,
+        "totalFilesSize" : 734,
+        "partOfTotalProcessingTimeOfThisFileType" : {
+          "part" : 1965000,
+          "total" : 1965000
+        }
+      } ]
+    }, {
+      "fileType" : "DTD",
+      "partOfTotalProcessingTime" : {
+        "part" : 453600,
+        "total" : 296204898400
+      },
+      "partOfTotalContentLoadingTime" : {
+        "part" : 173600,
+        "total" : 78200870100
+      },
+      "totalNumberOfFiles" : 1,
+      "totalFilesSize" : 504,
+      "indexingSpeed" : {
+        "totalBytes" : 504,
+        "totalTime" : 453600
+      },
+      "biggestContributors" : [ {
+        "providerName" : "Module 'pompi'",
+        "numberOfFiles" : 1,
+        "totalFilesSize" : 504,
+        "partOfTotalProcessingTimeOfThisFileType" : {
+          "part" : 453600,
+          "total" : 453600
+        }
+      } ]
+    } ],
+    "totalStatsPerIndexer" : [ {
+      "indexId" : "TodoIndex",
+      "partOfTotalIndexingTime" : {
+        "part" : 45698368900,
+        "total" : 126514646200
+      },
+      "totalNumberOfFiles" : 122506,
+      "totalNumberOfFilesIndexedByExtensions" : 2818,
+      "totalFilesSize" : 1389321482,
+      "indexingSpeed" : {
+        "totalBytes" : 1389321482,
+        "totalTime" : 45698368900
+      },
+      "snapshotInputMappingStats" : {
+        "totalRequests" : 0,
+        "totalMisses" : 0,
+        "totalHits" : 0
+      }
+    }, {
+      "indexId" : "Stubs",
+      "partOfTotalIndexingTime" : {
+        "part" : 40658043600,
+        "total" : 126514646200
+      },
+      "totalNumberOfFiles" : 48245,
+      "totalNumberOfFilesIndexedByExtensions" : 2818,
+      "totalFilesSize" : 532077105,
+      "indexingSpeed" : {
+        "totalBytes" : 532077105,
+        "totalTime" : 40658043600
+      },
+      "snapshotInputMappingStats" : {
+        "totalRequests" : 0,
+        "totalMisses" : 0,
+        "totalHits" : 0
+      }
+    }, {
+      "indexId" : "Trigram.Index",
+      "partOfTotalIndexingTime" : {
+        "part" : 16563030100,
+        "total" : 126514646200
+      },
+      "totalNumberOfFiles" : 122511,
+      "totalNumberOfFilesIndexedByExtensions" : 2818,
+      "totalFilesSize" : 1389460296,
+      "indexingSpeed" : {
+        "totalBytes" : 1389460296,
+        "totalTime" : 16563030100
+      },
+      "snapshotInputMappingStats" : {
+        "totalRequests" : 0,
+        "totalMisses" : 0,
+        "totalHits" : 0
+      }
+    }, {
+      "indexId" : "IdIndex",
+      "partOfTotalIndexingTime" : {
+        "part" : 11242677400,
+        "total" : 126514646200
+      },
+      "totalNumberOfFiles" : 122506,
+      "totalNumberOfFilesIndexedByExtensions" : 2818,
+      "totalFilesSize" : 1389321482,
+      "indexingSpeed" : {
+        "totalBytes" : 1389321482,
+        "totalTime" : 11242677400
+      },
+      "snapshotInputMappingStats" : {
+        "totalRequests" : 0,
+        "totalMisses" : 0,
+        "totalHits" : 0
+      }
+    }, {
+      "indexId" : "html5.custom.attributes.index",
+      "partOfTotalIndexingTime" : {
+        "part" : 4636545100,
+        "total" : 126514646200
+      },
+      "totalNumberOfFiles" : 6151,
+      "totalNumberOfFilesIndexedByExtensions" : 0,
+      "totalFilesSize" : 207441116,
+      "indexingSpeed" : {
+        "totalBytes" : 207441116,
+        "totalTime" : 4636545100
+      },
+      "snapshotInputMappingStats" : {
+        "totalRequests" : 0,
+        "totalMisses" : 0,
+        "totalHits" : 0
+      }
+    }, {
+      "indexId" : "fileIncludes",
+      "partOfTotalIndexingTime" : {
+        "part" : 3848333300,
+        "total" : 126514646200
+      },
+      "totalNumberOfFiles" : 31904,
+      "totalNumberOfFilesIndexedByExtensions" : 0,
+      "totalFilesSize" : 253064320,
+      "indexingSpeed" : {
+        "totalBytes" : 253064320,
+        "totalTime" : 3848333300
+      },
+      "snapshotInputMappingStats" : {
+        "totalRequests" : 0,
+        "totalMisses" : 0,
+        "totalHits" : 0
+      }
+    }, {
+      "indexId" : "RelaxSymbolIndex",
+      "partOfTotalIndexingTime" : {
+        "part" : 1278486800,
+        "total" : 126514646200
+      },
+      "totalNumberOfFiles" : 31904,
+      "totalNumberOfFilesIndexedByExtensions" : 0,
+      "totalFilesSize" : 253064320,
+      "indexingSpeed" : {
+        "totalBytes" : 253064320,
+        "totalTime" : 1278486800
+      },
+      "snapshotInputMappingStats" : {
+        "totalRequests" : 0,
+        "totalMisses" : 0,
+        "totalHits" : 0
+      }
+    }, {
+      "indexId" : "xmlProperties",
+      "partOfTotalIndexingTime" : {
+        "part" : 1219286400,
+        "total" : 126514646200
+      },
+      "totalNumberOfFiles" : 31904,
+      "totalNumberOfFilesIndexedByExtensions" : 0,
+      "totalFilesSize" : 253064320,
+      "indexingSpeed" : {
+        "totalBytes" : 253064320,
+        "totalTime" : 1219286400
+      },
+      "snapshotInputMappingStats" : {
+        "totalRequests" : 0,
+        "totalMisses" : 0,
+        "totalHits" : 0
+      }
+    }, {
+      "indexId" : "DomFileIndex",
+      "partOfTotalIndexingTime" : {
+        "part" : 1061895500,
+        "total" : 126514646200
+      },
+      "totalNumberOfFiles" : 31904,
+      "totalNumberOfFilesIndexedByExtensions" : 0,
+      "totalFilesSize" : 253064320,
+      "indexingSpeed" : {
+        "totalBytes" : 253064320,
+        "totalTime" : 1061895500
+      },
+      "snapshotInputMappingStats" : {
+        "totalRequests" : 0,
+        "totalMisses" : 0,
+        "totalHits" : 0
+      }
+    }, {
+      "indexId" : "json.file.root.values",
+      "partOfTotalIndexingTime" : {
+        "part" : 305138900,
+        "total" : 126514646200
+      },
+      "totalNumberOfFiles" : 2265,
+      "totalNumberOfFilesIndexedByExtensions" : 0,
+      "totalFilesSize" : 28588917,
+      "indexingSpeed" : {
+        "totalBytes" : 28588917,
+        "totalTime" : 305138900
+      },
+      "snapshotInputMappingStats" : {
+        "totalRequests" : 0,
+        "totalMisses" : 0,
+        "totalHits" : 0
+      }
+    }, {
+      "indexId" : "yaml.keys.name",
+      "partOfTotalIndexingTime" : {
+        "part" : 2840200,
+        "total" : 126514646200
+      },
+      "totalNumberOfFiles" : 12,
+      "totalNumberOfFilesIndexedByExtensions" : 0,
+      "totalFilesSize" : 45262,
+      "indexingSpeed" : {
+        "totalBytes" : 45262,
+        "totalTime" : 2840200
+      },
+      "snapshotInputMappingStats" : {
+        "totalRequests" : 0,
+        "totalMisses" : 0,
+        "totalHits" : 0
+      }
+    } ],
+    "scanningStatistics" : [ {
+      "providerName" : "Module 'pompi'",
+      "numberOfScannedFiles" : 587476,
+      "numberOfSkippedFiles" : 1,
+      "numberOfFilesForIndexing" : 122519,
+      "numberOfFilesFullyIndexedByInfrastructureExtensions" : 0,
+      "scanningTime" : 1739773200,
+      "timeProcessingUpToDateFiles" : 432054600,
+      "timeUpdatingContentLessIndexes" : 48808000,
+      "timeIndexingWithoutContent" : 211061400
+    }, {
+      "providerName" : "Indexable set contributor 'com.intellij.javaee.ExternalResourcesRootsProvider@14826556' (non-project)",
+      "numberOfScannedFiles" : 214,
+      "numberOfSkippedFiles" : 4,
+      "numberOfFilesForIndexing" : 0,
+      "numberOfFilesFullyIndexedByInfrastructureExtensions" : 0,
+      "scanningTime" : 2264100,
+      "timeProcessingUpToDateFiles" : 467100,
+      "timeUpdatingContentLessIndexes" : 0,
+      "timeIndexingWithoutContent" : 0
+    }, {
+      "providerName" : "Indexable set contributor 'Scratches & Consoles' (project)",
+      "numberOfScannedFiles" : 0,
+      "numberOfSkippedFiles" : 0,
+      "numberOfFilesForIndexing" : 0,
+      "numberOfFilesFullyIndexedByInfrastructureExtensions" : 0,
+      "scanningTime" : 0,
+      "timeProcessingUpToDateFiles" : 0,
+      "timeUpdatingContentLessIndexes" : 0,
+      "timeIndexingWithoutContent" : 0
+    }, {
+      "providerName" : "Indexable set contributor 'com.intellij.javaee.ExternalResourcesRootsProvider@14826556' (project)",
+      "numberOfScannedFiles" : 0,
+      "numberOfSkippedFiles" : 0,
+      "numberOfFilesForIndexing" : 0,
+      "numberOfFilesFullyIndexedByInfrastructureExtensions" : 0,
+      "scanningTime" : 0,
+      "timeProcessingUpToDateFiles" : 0,
+      "timeUpdatingContentLessIndexes" : 0,
+      "timeIndexingWithoutContent" : 0
+    }, {
+      "providerName" : "Indexable set contributor 'Scratches & Consoles' (non-project)",
+      "numberOfScannedFiles" : 0,
+      "numberOfSkippedFiles" : 0,
+      "numberOfFilesForIndexing" : 0,
+      "numberOfFilesFullyIndexedByInfrastructureExtensions" : 0,
+      "scanningTime" : 0,
+      "timeProcessingUpToDateFiles" : 0,
+      "timeUpdatingContentLessIndexes" : 0,
+      "timeIndexingWithoutContent" : 0
+    } ],
+    "fileProviderStatistics" : [ {
+      "providerName" : "Module 'pompi'",
+      "totalNumberOfIndexedFiles" : 122512,
+      "totalNumberOfFilesFullyIndexedByExtensions" : 2818,
+      "totalIndexingTime" : 74257926500,
+      "contentLoadingTime" : 19604788764,
+      "numberOfTooLargeForIndexingFiles" : 0,
+      "slowIndexedFiles" : [ {
+        "fileName" : "TestRunner.java",
+        "processingTime" : 568522000,
+        "indexingTime" : 179400,
+        "contentLoadingTime" : 567742700
+      }, {
+        "fileName" : "strings.xml",
+        "processingTime" : 960570500,
+        "indexingTime" : 949857300,
+        "contentLoadingTime" : 3058100
+      }, {
+        "fileName" : "report.html",
+        "processingTime" : 591610600,
+        "indexingTime" : 464369100,
+        "contentLoadingTime" : 20881000
+      }, {
+        "fileName" : "strings.xml",
+        "processingTime" : 971429600,
+        "indexingTime" : 950617800,
+        "contentLoadingTime" : 4160700
+      }, {
+        "fileName" : "strings.xml",
+        "processingTime" : 969253400,
+        "indexingTime" : 22826100,
+        "contentLoadingTime" : 3209000
+      }, {
+        "fileName" : "gradle_wrapper.html",
+        "processingTime" : 995466200,
+        "indexingTime" : 985703400,
+        "contentLoadingTime" : 2137800
+      }, {
+        "fileName" : "strings.xml",
+        "processingTime" : 957530300,
+        "indexingTime" : 945626900,
+        "contentLoadingTime" : 2988700
+      }, {
+        "fileName" : "dependency_management.html",
+        "processingTime" : 1230815300,
+        "indexingTime" : 1199815300,
+        "contentLoadingTime" : 10494700
+      }, {
+        "fileName" : "groovy_build_script_primer.html",
+        "processingTime" : 991693200,
+        "indexingTime" : 983548200,
+        "contentLoadingTime" : 2176400
+      }, {
+        "fileName" : "gradle_daemon.html",
+        "processingTime" : 995880700,
+        "indexingTime" : 986891100,
+        "contentLoadingTime" : 2270900
+      } ]
+    } ]
+  }
+}

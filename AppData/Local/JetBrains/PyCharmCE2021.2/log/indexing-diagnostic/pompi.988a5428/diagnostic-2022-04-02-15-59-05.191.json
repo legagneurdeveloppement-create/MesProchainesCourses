@@ -1,0 +1,226 @@
+{
+  "appInfo" : {
+    "build" : "212.5457.59",
+    "buildDate" : "2021-10-19T14:26:22.189Z[UTC]",
+    "productCode" : "PC",
+    "generated" : "2022-04-02T13:59:05.1916278Z",
+    "os" : "Windows 10 10.0",
+    "runtime" : "JetBrains s.r.o. 11.0.12 11.0.12+7-b1504.40"
+  },
+  "runtimeInfo" : {
+    "maxMemory" : 2075918336,
+    "numberOfProcessors" : 16,
+    "maxNumberOfIndexingThreads" : 4,
+    "maxSizeOfFileForIntelliSense" : 2560000,
+    "maxSizeOfFileForContentLoading" : 20971520
+  },
+  "projectIndexingHistory" : {
+    "projectName" : "crm.py",
+    "times" : {
+      "indexingReason" : "Project roots have changed",
+      "totalUpdatingTime" : 6431534900,
+      "indexingTime" : 3187124800,
+      "contentLoadingTime" : 132089493,
+      "scanFilesTime" : 3145709700,
+      "pushPropertiesTime" : 0,
+      "indexExtensionsTime" : 0,
+      "updatingStart" : "2022-04-02T13:58:58.7600516Z",
+      "updatingEnd" : "2022-04-02T13:59:05.1916278Z",
+      "totalSuspendedTime" : 0,
+      "wasInterrupted" : false
+    },
+    "fileCount" : {
+      "numberOfFileProviders" : 6,
+      "numberOfScannedFiles" : 588851,
+      "numberOfFilesIndexedByInfrastructureExtensionsDuringScan" : 0,
+      "numberOfFilesScheduledForIndexingAfterScan" : 4556,
+      "numberOfFilesIndexedByInfrastructureExtensionsDuringIndexingStage" : 2283,
+      "numberOfFilesIndexedWithLoadingContent" : 4556
+    },
+    "totalStatsPerFileType" : [ {
+      "fileType" : "Python",
+      "partOfTotalProcessingTime" : {
+        "part" : 12649265500,
+        "total" : 12649265500
+      },
+      "partOfTotalContentLoadingTime" : {
+        "part" : 525318900,
+        "total" : 525318900
+      },
+      "totalNumberOfFiles" : 4556,
+      "totalFilesSize" : 64621977,
+      "indexingSpeed" : {
+        "totalBytes" : 64621977,
+        "totalTime" : 12649265500
+      },
+      "biggestContributors" : [ {
+        "providerName" : "Python SDK Python 3.9",
+        "numberOfFiles" : 4122,
+        "totalFilesSize" : 53209349,
+        "partOfTotalProcessingTimeOfThisFileType" : {
+          "part" : 10228721800,
+          "total" : 12649265500
+        }
+      }, {
+        "providerName" : "Module 'pompi'",
+        "numberOfFiles" : 434,
+        "totalFilesSize" : 11412628,
+        "partOfTotalProcessingTimeOfThisFileType" : {
+          "part" : 2420543700,
+          "total" : 12649265500
+        }
+      } ]
+    } ],
+    "totalStatsPerIndexer" : [ {
+      "indexId" : "Stubs",
+      "partOfTotalIndexingTime" : {
+        "part" : 10479921800,
+        "total" : 10663103800
+      },
+      "totalNumberOfFiles" : 4556,
+      "totalNumberOfFilesIndexedByExtensions" : 2283,
+      "totalFilesSize" : 64621977,
+      "indexingSpeed" : {
+        "totalBytes" : 64621977,
+        "totalTime" : 10479921800
+      },
+      "snapshotInputMappingStats" : {
+        "totalRequests" : 0,
+        "totalMisses" : 0,
+        "totalHits" : 0
+      }
+    }, {
+      "indexId" : "Trigram.Index",
+      "partOfTotalIndexingTime" : {
+        "part" : 85484900,
+        "total" : 10663103800
+      },
+      "totalNumberOfFiles" : 4556,
+      "totalNumberOfFilesIndexedByExtensions" : 2283,
+      "totalFilesSize" : 64621977,
+      "indexingSpeed" : {
+        "totalBytes" : 64621977,
+        "totalTime" : 85484900
+      },
+      "snapshotInputMappingStats" : {
+        "totalRequests" : 0,
+        "totalMisses" : 0,
+        "totalHits" : 0
+      }
+    }, {
+      "indexId" : "TodoIndex",
+      "partOfTotalIndexingTime" : {
+        "part" : 52433200,
+        "total" : 10663103800
+      },
+      "totalNumberOfFiles" : 4556,
+      "totalNumberOfFilesIndexedByExtensions" : 2283,
+      "totalFilesSize" : 64621977,
+      "indexingSpeed" : {
+        "totalBytes" : 64621977,
+        "totalTime" : 52433200
+      },
+      "snapshotInputMappingStats" : {
+        "totalRequests" : 0,
+        "totalMisses" : 0,
+        "totalHits" : 0
+      }
+    }, {
+      "indexId" : "IdIndex",
+      "partOfTotalIndexingTime" : {
+        "part" : 45263900,
+        "total" : 10663103800
+      },
+      "totalNumberOfFiles" : 4556,
+      "totalNumberOfFilesIndexedByExtensions" : 2283,
+      "totalFilesSize" : 64621977,
+      "indexingSpeed" : {
+        "totalBytes" : 64621977,
+        "totalTime" : 45263900
+      },
+      "snapshotInputMappingStats" : {
+        "totalRequests" : 0,
+        "totalMisses" : 0,
+        "totalHits" : 0
+      }
+    } ],
+    "scanningStatistics" : [ {
+      "providerName" : "Module 'pompi'",
+      "numberOfScannedFiles" : 578018,
+      "numberOfSkippedFiles" : 12759,
+      "numberOfFilesForIndexing" : 434,
+      "numberOfFilesFullyIndexedByInfrastructureExtensions" : 0,
+      "scanningTime" : 298334700,
+      "timeProcessingUpToDateFiles" : 618600,
+      "timeUpdatingContentLessIndexes" : 406700,
+      "timeIndexingWithoutContent" : 856900
+    }, {
+      "providerName" : "Python SDK Python 3.9",
+      "numberOfScannedFiles" : 10619,
+      "numberOfSkippedFiles" : 3,
+      "numberOfFilesForIndexing" : 4122,
+      "numberOfFilesFullyIndexedByInfrastructureExtensions" : 0,
+      "scanningTime" : 70192200,
+      "timeProcessingUpToDateFiles" : 8937000,
+      "timeUpdatingContentLessIndexes" : 2159900,
+      "timeIndexingWithoutContent" : 8092800
+    }, {
+      "providerName" : "Indexable set contributor 'com.intellij.javaee.ExternalResourcesRootsProvider@14826556' (non-project)",
+      "numberOfScannedFiles" : 214,
+      "numberOfSkippedFiles" : 4,
+      "numberOfFilesForIndexing" : 0,
+      "numberOfFilesFullyIndexedByInfrastructureExtensions" : 0,
+      "scanningTime" : 141200,
+      "timeProcessingUpToDateFiles" : 0,
+      "timeUpdatingContentLessIndexes" : 0,
+      "timeIndexingWithoutContent" : 0
+    }, {
+      "providerName" : "Indexable set contributor 'Scratches & Consoles' (project)",
+      "numberOfScannedFiles" : 0,
+      "numberOfSkippedFiles" : 0,
+      "numberOfFilesForIndexing" : 0,
+      "numberOfFilesFullyIndexedByInfrastructureExtensions" : 0,
+      "scanningTime" : 0,
+      "timeProcessingUpToDateFiles" : 0,
+      "timeUpdatingContentLessIndexes" : 0,
+      "timeIndexingWithoutContent" : 0
+    }, {
+      "providerName" : "Indexable set contributor 'com.intellij.javaee.ExternalResourcesRootsProvider@14826556' (project)",
+      "numberOfScannedFiles" : 0,
+      "numberOfSkippedFiles" : 0,
+      "numberOfFilesForIndexing" : 0,
+      "numberOfFilesFullyIndexedByInfrastructureExtensions" : 0,
+      "scanningTime" : 0,
+      "timeProcessingUpToDateFiles" : 0,
+      "timeUpdatingContentLessIndexes" : 0,
+      "timeIndexingWithoutContent" : 0
+    }, {
+      "providerName" : "Indexable set contributor 'Scratches & Consoles' (non-project)",
+      "numberOfScannedFiles" : 0,
+      "numberOfSkippedFiles" : 0,
+      "numberOfFilesForIndexing" : 0,
+      "numberOfFilesFullyIndexedByInfrastructureExtensions" : 0,
+      "scanningTime" : 0,
+      "timeProcessingUpToDateFiles" : 0,
+      "timeUpdatingContentLessIndexes" : 0,
+      "timeIndexingWithoutContent" : 0
+    } ],
+    "fileProviderStatistics" : [ {
+      "providerName" : "Python SDK Python 3.9",
+      "totalNumberOfIndexedFiles" : 4122,
+      "totalNumberOfFilesFullyIndexedByExtensions" : 2092,
+      "totalIndexingTime" : 2565306400,
+      "contentLoadingTime" : 116992765,
+      "numberOfTooLargeForIndexingFiles" : 0,
+      "slowIndexedFiles" : [ ]
+    }, {
+      "providerName" : "Module 'pompi'",
+      "totalNumberOfIndexedFiles" : 434,
+      "totalNumberOfFilesFullyIndexedByExtensions" : 191,
+      "totalIndexingTime" : 621148500,
+      "contentLoadingTime" : 15096728,
+      "numberOfTooLargeForIndexingFiles" : 0,
+      "slowIndexedFiles" : [ ]
+    } ]
+  }
+}
