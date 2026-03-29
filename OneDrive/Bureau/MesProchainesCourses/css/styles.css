@@ -1,0 +1,143 @@
+:root { 
+    --primary-color: #9C27B0; 
+    --primary-dark: #7B1FA2; 
+    --primary-light: #E1BEE7; 
+    --secondary-color: #FF9800; 
+    --secondary-dark: #F57C00; 
+    --accent-color: #2196F3; 
+    --accent-dark: #1976D2; 
+    --danger-color: #f44336; 
+    --danger-dark: #d32f2f; 
+    --warning-color: #FFC107; 
+    --success-color: #4CAF50; 
+    --info-color: #2196F3; 
+    --background-color: #f8f9fa; 
+    --surface-color: #ffffff; 
+    --text-primary: #212121; 
+    --text-secondary: #757575; 
+    --border-color: #e0e0e0; 
+    --border-radius: 12px; 
+    --transition: all 0.3s ease; 
+    --category-fruits: #4CAF50; 
+    --category-viande: #FF5722; 
+    --category-laitiers: #2196F3; 
+    --category-epicerie: #FF9800; 
+    --category-boulangerie: #8D6E63; 
+    --category-boissons: #00BCD4; 
+    --category-hygiene: #E91E63; 
+    --category-menage: #9C27B0; 
+    --category-autres: #607D8B; 
+} 
+
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+} 
+
+body { 
+    font-family: 'Segoe UI', sans-serif; 
+    background-color: var(--background-color); 
+    color: var(--text-primary); 
+    line-height: 1.6; 
+} 
+
+.hidden { display: none !important; } 
+
+.screen { 
+    min-height: 100vh; 
+    display: flex; 
+    flex-direction: column; 
+    position: absolute; 
+    width: 100%; 
+    transform: translateX(100%); 
+    transition: transform 0.3s ease; 
+} 
+
+.screen.active { transform: translateX(0); } 
+
+.app-header { 
+    background: linear-gradient(135deg, var(--primary-color), var(--primary-dark)); 
+    color: white; 
+    padding: 1rem; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); 
+    position: sticky; 
+    top: 0; 
+    z-index: 100; 
+} 
+
+.header-content { display: flex; align-items: center; justify-content: space-between; } 
+
+.stats-container { 
+    display: grid; 
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); 
+    gap: 1rem; 
+    margin-bottom: 1.5rem; 
+} 
+
+.stat-card { 
+    background: var(--surface-color); 
+    border-radius: var(--border-radius); 
+    padding: 1rem; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+} 
+
+.list-card, .item-card { 
+    background: var(--surface-color); 
+    border-radius: var(--border-radius); 
+    padding: 1rem; 
+    margin-bottom: 1rem; 
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); 
+    cursor: pointer; 
+    border: 1px solid var(--border-color); 
+} 
+
+.item-card.completed { opacity: 0.7; } 
+
+.item-checkbox { 
+    width: 24px; 
+    height: 24px; 
+    border: 2px solid var(--border-color); 
+    border-radius: 6px; 
+} 
+
+.item-checkbox.checked { background: var(--primary-color); color: white; } 
+
+.fab { 
+    position: fixed; 
+    bottom: 2rem; 
+    right: 2rem; 
+    width: 56px; 
+    height: 56px; 
+    border-radius: 50%; 
+    background: var(--primary-color); 
+    color: white; 
+    border: none; 
+    font-size: 1.5rem; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2); 
+} 
+
+.modal { 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: rgba(0,0,0,0.5); 
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    z-index: 1000; 
+} 
+
+.modal-content { 
+    background: var(--surface-color); 
+    border-radius: var(--border-radius); 
+    padding: 1.5rem; 
+    width: 90%; 
+    max-width: 400px; 
+} 
+
+@media (max-width: 600px) { 
+    .stats-container { grid-template-columns: 1fr; } 
+}

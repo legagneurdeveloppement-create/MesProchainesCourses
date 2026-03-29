@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mes Prochaines Courses - Application de Liste de Courses Intelligente</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <meta name="description" content="Application de liste de courses intelligente avec reconnaissance vocale, catégories et partage">
+    <meta name="keywords" content="liste de courses, shopping, reconnaissance vocale, courses, famille">
+    <meta name="author" content="Mes Prochaines Courses">
+
+    <!-- Meta pour les réseaux sociaux -->
+    <meta property="og:title" content="Mes Prochaines Courses">
+    <meta property="og:description" content="Application de liste de courses intelligente avec reconnaissance vocale">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="images/logo.png">
+
+    <!-- PWA Meta -->
+    <meta name="theme-color" content="#9C27B0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="default">
+    <link rel="manifest" href="manifest.json">
+    <meta name="apple-mobile-web-app-title" content="Mes Prochaines Courses">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+
+<body>
+    <!-- Écran principal - Liste des listes -->
+    <div id="home-screen" class="screen active">
+        <header class="app-header">
+            <div class="header-content">
+                <div class="header-left">
+                    <img src="images/logo.png" alt="Logo" class="header-logo" style="height: 40px; width: auto; vertical-align: middle; margin-right: 10px; object-fit: contain; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1));">
+                    <h1>Mes Prochaines Courses</h1>
+                </div>
+                <div class="header-right">
+                    <button id="settings-btn" class="header-btn" title="Paramètres">
+                        <i class="fas fa-cog"></i>
+                    </button>
+                    <button id="open-settings-btn" class="header-btn" title="Paramètres de l'application">
+                        <i class="fas fa-sliders-h"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <!-- Statistiques rapides -->
+            <div class="stats-container">
+                <div class="stat-card">
+                    <i class="fas fa-list"></i>
+                    <div class="stat-info">
+                        <span class="stat-number" id="total-lists">0</span>
+                        <span class="stat-label">Listes</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-shopping-basket"></i>
+                    <div class="stat-info">
+                        <span class="stat-number" id="total-items">0</span>
+                        <span class="stat-label">Articles</span>
+                    </div>
+                </div>
+                <div class="stat-card">
+                    <i class="fas fa-check-circle"></i>
+                    <div class="stat-info">
+                        <span class="stat-number" id="completed-today">0</span>
+                        <span class="stat-label">Aujourd'hui</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Recherche et filtres -->
+            <div class="search-container">
+                <div class="search-box">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="search-input" placeholder="Rechercher une liste...">
+                    <button id="clear-search" class="clear-btn hidden">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="filter-buttons">
+                    <button id="filter-all" class="filter-btn active">Toutes</button>
+                    <button id="filter-active" class="filter-btn">En cours</button>
+                    <button id="filter-completed" class="filter-btn">Terminées</button>
+                </div>
+            </div>
+
+            <div id="empty-state" class="empty-state">
+                <div class="empty-icon">
+                    <i class="fas fa-shopping-cart"></i>
+                </div>
+                <h2>Commencez vos courses !</h2>
+                <p>Créez votre première liste de courses et organisez vos achats facilement</p>
+                <button class="btn btn-primary" onclick="app.showNewListModal()">
+                    <i class="fas fa-plus"></i> Créer une liste
+                </button>
+            </div>
+
+            <div id="lists-container" class="lists-container"></div>
+
+            <!-- Rapport par magasin (activable dans les paramètres) -->
+            <div id="store-report-container" class="store-report-container hidden">
+                <h3><i class="fas fa-store"></i> Articles par magasin</h3>
+                <div id="store-report-list" class="store-report-list">
+                    <!-- Généré dynamiquement -->
+                </div>
+            </div>
+        </main>
+
+        <button id="add-list-btn" class="fab" title="Créer une nouvelle liste">
+            <i class="fas fa-plus"></i>
+        </button>
+
+        <!-- Menu contextuel pour les listes -->
+        <div id="context-menu" class="context-menu hidden">
+            <div class="context-item" data-action="edit">
+                <i class="fas fa-edit"></i>
+                <span>Modifier</span>
+            </div>
+            <div class="context-item" data-action="duplicate">
+                <i class="fas fa-copy"></i>
+                <span>Dupliquer</span>
+            </div>
+            <div class="context-item" data-action="share">
+                <i class="fas fa-share"></i>
+                <span>Partager</span>
+            </div>
+            <div class="context-item danger" data-action="delete">
+                <i class="fas fa-trash"></i>
+                <span>Supprimer</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- Écran détail d'une liste -->
+    <div id="list-detail-screen" class="screen">
+        <header class="app-header">
+            <div class="header-content">
+                <div class="header-left">
+                    <button id="back-btn" class="back-btn">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <div class="list-info">
+                        <h1 id="list-title">Mes Prochaines Courses</h1>
+                        <span id="list-date" class="list-date"></span>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <button id="list-settings-btn" class="header-btn" title="Paramètres de la liste">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                    <button id="print-btn" class="header-btn" title="Imprimer la liste">
+                        <i class="fas fa-print"></i>
+                    </button>
+                    <button id="share-btn" class="header-btn" title="Partager la liste" onclick="app.shareCurrentList()">
+                        <i class="fas fa-share"></i>
+                    </button>
+                </div>
+            </div>
+        </header>
+
+        <!-- Barre de progression -->
+        <div class="progress-container">
+            <div class="progress-info">
+                <span id="progress-text" class="progress-text">0/0 articles</span>
+                <span id="progress-percentage" class="progress-percentage">0%</span>
+            </div>
+            <div class="progress-bar">
+                <div id="progress-fill" class="progress-fill"></div>
+            </div>
+        </div>
+
+        <!-- Indicateur de reconnaissance vocale -->
+        <div id="listening-indicator" class="listening-indicator hidden">
+            <div class="listening-content">
+                <div class="listening-icon">
+                    <i class="fas fa-microphone"></i>
+                </div>
+                <div class="listening-text">
+                    <span id="listening-status">Écoute en cours...</span>
+                    <span id="listening-result" class="listening-result"></span>
+                </div>
+                <button id="stop-listening" class="stop-btn">
+                    <i class="fas fa-stop"></i>
+                </button>
+            </div>
+        </div>
+
+        <main class="main-content">
+            <div id="empty-list-state" class="empty-state hidden">
+                <div class="empty-icon">
+                    <i class="fas fa-shopping-basket"></i>
+                </div>
+                <h2>Liste vide</h2>
+                <p>Ajoutez vos premiers articles pour commencer vos courses</p>
+                <div class="empty-actions">
+                    <button class="btn btn-primary" onclick="app.showNewItemModal()">
+                        <i class="fas fa-plus"></i> Ajouter un article
+                    </button>
+                    <button class="btn btn-secondary" onclick="app.toggleVoiceInput()">
+                        <i class="fas fa-microphone"></i> Ajouter par la voix
+                    </button>
+                </div>
+            </div>
+
+            <!-- Vue par catégories -->
+            <div id="categories-view" class="categories-view hidden"></div>
+
+            <!-- Vue liste simple -->
+            <div id="items-container" class="items-container"></div>
+        </main>
+
+        <div class="fab-container">
+            <button id="voice-btn" class="fab voice-fab" title="Ajouter par la voix">
+                <i class="fas fa-microphone"></i>
+            </button>
+            <button id="add-item-btn" class="fab" title="Ajouter un article">
+                <i class="fas fa-plus"></i>
+            </button>
+        </div>
+    </div>
+
+    <!-- Modale pour créer une nouvelle liste -->
+    <div id="new-list-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Nouvelle liste</h2>
+                <button class="modal-close" onclick="app.hideModal('new-list-modal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <label for="new-list-name">Nom de la liste</label>
+                    <input type="text" id="new-list-name" placeholder="Ex: Courses du weekend" maxlength="50">
+                </div>
+                <div class="input-group">
+                    <label for="new-list-description">Description (optionnel)</label>
+                    <textarea id="new-list-description" placeholder="Description de votre liste..." maxlength="200"></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="new-list-color">Couleur</label>
+                    <div class="color-picker">
+                        <div class="color-option active" data-color="#4CAF50" style="background: #4CAF50"></div>
+                        <div class="color-option" data-color="#2196F3" style="background: #2196F3"></div>
+                        <div class="color-option" data-color="#FF9800" style="background: #FF9800"></div>
+                        <div class="color-option" data-color="#E91E63" style="background: #E91E63"></div>
+                        <div class="color-option" data-color="#9C27B0" style="background: #9C27B0"></div>
+                        <div class="color-option" data-color="#00BCD4" style="background: #00BCD4"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="cancel-list-btn" class="btn btn-secondary">Annuler</button>
+                <button id="create-list-btn" class="btn btn-primary">Créer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modale pour ajouter un article -->
+    <div id="new-item-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Ajouter un article</h2>
+                <button class="modal-close" onclick="app.hideModal('new-item-modal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="input-group">
+                    <label for="new-item-name">Nom de l'article</label>
+                    <input type="text" id="new-item-name" placeholder="Ex: Lait demi-écrémé" maxlength="100">
+                    <div class="suggestions" id="item-suggestions"></div>
+                </div>
+                <div class="input-row">
+                    <div class="input-group">
+                        <label for="new-item-quantity">Quantité</label>
+                        <input type="number" id="new-item-quantity" placeholder="1" min="1" max="999">
+                    </div>
+                    <div class="input-group">
+                        <label for="new-item-unit">Unité</label>
+                        <select id="new-item-unit">
+                            <option value="">-</option>
+                            <option value="kg">kg</option>
+                            <option value="g">g</option>
+                            <option value="L">L</option>
+                            <option value="ml">ml</option>
+                            <option value="pièce">pièce</option>
+                            <option value="paquet">paquet</option>
+                            <option value="bouteille">bouteille</option>
+                            <option value="boîte">boîte</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="input-group">
+                    <label for="new-item-category">Catégorie</label>
+                    <select id="new-item-category">
+                        <option value="">Sélectionner une catégorie</option>
+                        <option value="fruits-legumes">Fruits & Légumes</option>
+                        <option value="viande-poisson">Viande & Poisson</option>
+                        <option value="produits-laitiers">Produits Laitiers</option>
+                        <option value="epicerie">Épicerie</option>
+                        <option value="boulangerie">Boulangerie</option>
+                        <option value="boissons">Boissons</option>
+                        <option value="hygiene">Hygiène</option>
+                        <option value="menage">Ménage</option>
+                        <option value="autres">Autres</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="new-item-price">Prix estimé (€)</label>
+                    <input type="number" id="new-item-price" placeholder="0.00" min="0" step="0.01">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button id="cancel-item-btn" class="btn btn-secondary">Annuler</button>
+                <button id="add-item-confirm-btn" class="btn btn-primary">Ajouter</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modale de confirmation de suppression -->
+    <div id="delete-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Confirmation</h2>
+                <button class="modal-close" onclick="app.hideModal('delete-modal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p id="delete-message">Êtes-vous sûr de vouloir supprimer cette liste ?</p>
+                <p class="warning-text">Cette action est irréversible.</p>
+            </div>
+            <div class="modal-footer">
+                <button id="cancel-delete-btn" class="btn btn-secondary">Annuler</button>
+                <button id="confirm-delete-btn" class="btn btn-danger">Supprimer</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Écran des paramètres -->
+    <div id="settings-screen" class="screen">
+        <header class="app-header">
+            <div class="header-content">
+                <div class="header-left">
+                    <button id="settings-back-btn" class="back-btn">
+                        <i class="fas fa-arrow-left"></i>
+                    </button>
+                    <h1>Paramètres</h1>
+                </div>
+            </div>
+        </header>
+
+        <main class="main-content">
+            <div class="settings-group">
+                <h3>Affichage</h3>
+                <div class="setting-item">
+                    <span>Afficher les sous-totaux</span>
+                    <label class="switch">
+                        <input type="checkbox" id="setting-subtotals">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <span>Articles par magasin</span>
+                    <label class="switch">
+                        <input type="checkbox" id="setting-store-report">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="settings-group">
+                <h3>Synchronisation (Cloud)</h3>
+                <div class="input-group">
+                    <label for="sync-code-input">Code de synchronisation</label>
+                    <input type="text" id="sync-code-input" placeholder="Ex: moncode123">
+                </div>
+            </div>
+
+            <div class="settings-actions">
+                <button id="save-settings-btn" class="btn btn-primary">Enregistrer</button>
+            </div>
+
+            <!-- Footer avec lien vers Mentions Légales -->
+            <footer class="settings-footer" style="margin-top: 2rem; text-align: center; border-top: 1px solid var(--border-color); padding-top: 1rem;">
+                <a href="mentions-legales.html" style="color: var(--text-secondary); text-decoration: none; font-size: 0.9rem;">Mentions Légales</a>
+            </footer>
+        </main>
+    </div>
+
+    <!-- Toast pour les notifications -->
+    <div id="toast" class="toast hidden">
+        <div class="toast-content">
+            <i id="toast-icon" class="toast-icon"></i>
+            <span id="toast-message"></span>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/storage.js"></script>
+    <script src="js/speech.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>

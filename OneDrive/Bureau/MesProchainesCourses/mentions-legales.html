@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions Légales - Mes Prochaines Courses</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .legal-content {
+            padding: 2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .legal-content h1 { color: var(--primary-color); margin-bottom: 2rem; }
+        .legal-content h2 { color: var(--primary-dark); margin-top: 1.5rem; margin-bottom: 1rem; }
+        .legal-content p { margin-bottom: 1rem; color: var(--text-primary); }
+        .back-link { display: inline-block; margin-bottom: 1rem; color: var(--primary-color); text-decoration: none; }
+    </style>
+</head>
+<body>
+    <header class="app-header">
+        <div class="header-content">
+            <div class="header-left">
+                <a href="index.html" class="back-btn" style="color: white; margin-right: 1rem;"><i class="fas fa-arrow-left"></i></a>
+                <h1>Mentions Légales</h1>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content" style="padding: 2rem 1rem;">
+        <div class="legal-content">
+            <h2>1. Éditeur de l'application</h2>
+            <p><strong>Nom :</strong> [Votre Nom / Nom de l'entreprise]</p>
+            <p><strong>Contact :</strong> [Votre Email]</p>
+
+            <h2>2. Hébergement</h2>
+            <p><strong>Frontend :</strong> Vercel Inc., 340 S Lemon Ave #4133, Walnut, CA 91789, USA. (https://vercel.com)</p>
+            <p><strong>Backend & Base de données :</strong> Supabase Inc., 970 Summer St, Stamford, CT 06905, USA. (https://supabase.com)</p>
+
+            <h2>3. Propriété intellectuelle</h2>
+            <p>L'ensemble de cette application relève de la législation française et internationale sur le droit d'auteur et la propriété intellectuelle. Tous les droits de reproduction sont réservés.</p>
+
+            <h2>4. Données personnelles</h2>
+            <p>Les données sont stockées localement sur votre appareil (LocalStorage) et synchronisées de manière sécurisée via Supabase si vous utilisez la fonctionnalité de synchronisation. Aucune donnée n'est revendue à des tiers.</p>
+        </div>
+    </main>
+</body>
+</html>

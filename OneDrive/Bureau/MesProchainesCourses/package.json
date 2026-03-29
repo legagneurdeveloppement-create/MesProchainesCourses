@@ -1,0 +1,12 @@
+{
+  "name": "mes-prochaines-courses",
+  "version": "1.0.0",
+  "description": "Application de liste de courses intelligente",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx browser-sync start --server --files '*.html, .js, .css' --no-notify"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}
