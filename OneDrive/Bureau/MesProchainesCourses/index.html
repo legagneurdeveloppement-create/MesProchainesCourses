@@ -342,6 +342,25 @@
         </div>
     </div>
 
+    <!-- Modale de partage -->
+    <div id="share-modal" class="modal hidden">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Partager la liste</h2>
+                <button class="modal-close" onclick="app.hideModal('share-modal')">
+                    <i class="fas fa-times"></i>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p style="margin-bottom:1rem; color: var(--text-secondary);">Copiez ce texte pour partager votre liste :</p>
+                <textarea id="share-text" rows="8" style="width:100%; padding:0.75rem; border:1px solid var(--border-color); border-radius:var(--border-radius); font-size:0.9rem; resize:none;" readonly></textarea>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="app.hideModal('share-modal')">Fermer</button>
+                <button class="btn btn-primary" onclick="app.copyShareText()"><i class="fas fa-copy"></i> Copier</button>
+            </div>
+        </div>
+    </div>
     <!-- Écran des paramètres -->
     <div id="settings-screen" class="screen">
         <header class="app-header">
@@ -369,6 +388,24 @@
                     <span>Articles par magasin</span>
                     <label class="switch">
                         <input type="checkbox" id="setting-store-report">
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+            </div>
+
+            <div class="settings-group">
+                <h3>Écran principal</h3>
+                <div class="setting-item">
+                    <span>Afficher les statistiques</span>
+                    <label class="switch">
+                        <input type="checkbox" id="setting-show-stats" checked>
+                        <span class="slider round"></span>
+                    </label>
+                </div>
+                <div class="setting-item">
+                    <span>Afficher la recherche</span>
+                    <label class="switch">
+                        <input type="checkbox" id="setting-show-search" checked>
                         <span class="slider round"></span>
                     </label>
                 </div>
