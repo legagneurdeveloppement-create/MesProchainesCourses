@@ -322,7 +322,7 @@ class ShoppingListApp {
             if (cancelListBtn) cancelListBtn.addEventListener('click', () => this.hideModal('new-list-modal'));
 
             const addItemConfirmBtn = document.getElementById('add-item-confirm-btn');
-            if (addItemConfirmBtn) addItemConfirmBtn.addEventListener('click', () => this.addNewItem());
+            if (addItemConfirmBtn) addItemConfirmBtn.onclick = () => this.addNewItem();
 
             const cancelItemBtn = document.getElementById('cancel-item-btn');
             if (cancelItemBtn) cancelItemBtn.addEventListener('click', () => this.hideModal('new-item-modal'));
@@ -716,6 +716,36 @@ class ShoppingListApp {
         this.renderHomeScreen();
     }
 
+    // Modale pour ajouter un article
+    showNewItemModal() {
+        if (!this.currentList) return;
+        
+        document.getElementById('new-item-name').value = '';
+        const qtyEl = document.getElementById('new-item-quantity');
+        if (qtyEl) qtyEl.value = '';
+        const unitEl = document.getElementById('new-item-unit');
+        if (unitEl) unitEl.value = '';
+        const catEl = document.getElementById('new-item-category');
+        if (catEl) catEl.value = '';
+        const priceEl = document.getElementById('new-item-price');
+        if (priceEl) priceEl.value = '';
+        
+        const storeEl = document.getElementById('new-item-store');
+        if (storeEl) storeEl.value = '';
+
+        const addBtn = document.getElementById('add-item-confirm-btn');
+        if (addBtn) {
+            addBtn.textContent = 'Ajouter';
+            addBtn.onclick = () => this.addNewItem();
+        }
+
+        this.showModal('new-item-modal');
+        setTimeout(() => {
+            const input = document.getElementById('new-item-name');
+            if (input) input.focus();
+        }, 100);
+    }
+
     // Ajouter un nouvel article
     addNewItem() {
         const name = document.getElementById('new-item-name').value.trim();
@@ -890,6 +920,10 @@ class ShoppingListApp {
 
     // Vocale
     toggleVoiceInput() {
+        if (!this.speechManager || (this.speechManager.isSupported && !this.speechManager.isSupported())) {
+            this.showToast('Reconnaissance vocale non supportée sur ce navigateur', 'error');
+            return;
+        }
         if (this.speechManager.isListening()) {
             this.speechManager.stopListening();
         } else {
