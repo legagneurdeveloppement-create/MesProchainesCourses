@@ -314,6 +314,14 @@ class ShoppingListApp {
                 });
             });
 
+            // Sélection couleur
+            document.querySelectorAll('.color-option').forEach(option => {
+                option.addEventListener('click', (e) => {
+                    document.querySelectorAll('.color-option').forEach(opt => opt.classList.remove('active'));
+                    e.target.classList.add('active');
+                });
+            });
+
             // Modales
             const createListBtn = document.getElementById('create-list-btn');
             if (createListBtn) createListBtn.addEventListener('click', () => this.createNewList());
@@ -444,14 +452,16 @@ class ShoppingListApp {
         const completedCount = list.items.filter(item => item.completed).length;
         const totalCount = list.items.length;
         const isCompleted = totalCount > 0 && completedCount === totalCount;
+        const customColorStyle = !isCompleted && list.color ? `style="background: ${list.color}"` : '';
 
         return `
             <div class="list-card" onclick="app.showListDetail(${JSON.stringify(list).replace(/"/g, '&quot;')})">
-                <div class="list-icon ${isCompleted ? 'completed' : 'pending'}">
+                <div class="list-icon ${isCompleted ? 'completed' : 'pending'}" ${customColorStyle}>
                     <i class="fas ${isCompleted ? 'fa-check' : 'fa-shopping-cart'}"></i>
                 </div>
                 <div class="list-info">
                     <div class="list-name">${this.escapeHtml(list.name)}</div>
+                    ${list.description ? `<div class="list-desc" style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.2rem;">${this.escapeHtml(list.description)}</div>` : ''}
                     <div class="list-count">${completedCount}/${totalCount} articles</div>
                 </div>
                 <div class="list-actions">
@@ -689,13 +699,28 @@ class ShoppingListApp {
     // Modale de nouvelle liste
     showNewListModal() {
         document.getElementById('new-list-name').value = '';
+        const descEl = document.getElementById('new-list-description');
+        if (descEl) descEl.value = '';
+        
+        document.querySelectorAll('.color-option').forEach((opt, index) => {
+            if (index === 0) opt.classList.add('active');
+            else opt.classList.remove('active');
+        });
+
         this.showModal('new-list-modal');
-        document.getElementById('new-list-name').focus();
+        setTimeout(() => {
+            const input = document.getElementById('new-list-name');
+            if(input) input.focus();
+        }, 100);
     }
 
     // Créer une nouvelle liste
     createNewList() {
         const name = document.getElementById('new-list-name').value.trim();
+        const descEl = document.getElementById('new-list-description');
+        const description = descEl ? descEl.value.trim() : '';
+        const activeColorOpt = document.querySelector('.color-option.active');
+        const color = activeColorOpt ? activeColorOpt.dataset.color : '#4CAF50';
 
         if (!name) {
             this.showToast('Veuillez saisir un nom', 'error');
@@ -705,6 +730,8 @@ class ShoppingListApp {
         const newList = {
             id: Date.now().toString(),
             name: name,
+            description: description,
+            color: color,
             items: [],
             createdAt: new Date().toISOString(),
             updatedAt: new Date().toISOString()
