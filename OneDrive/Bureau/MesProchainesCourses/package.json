@@ -4,7 +4,8 @@
   "description": "Application de liste de courses intelligente",
   "main": "index.html",
   "scripts": {
-    "dev": "npx browser-sync start --server --files '*.html, .js, .css' --no-notify"
+    "dev": "npx browser-sync start --server --files '*.html, .js, .css' --no-notify",
+    "vercel-build": "mkdir -p public && cp -r css images js *.html manifest.json sw.js public/"
   },
   "keywords": [],
   "author": "",
