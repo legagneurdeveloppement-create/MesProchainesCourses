@@ -257,12 +257,9 @@ class ShoppingListApp {
             const printBtn = document.getElementById('print-btn');
             if (printBtn) printBtn.addEventListener('click', () => this.printList());
 
-            // settings-btn (engrenage) ET open-settings-btn (sliders) => même action
+            // settings-btn (engrenage) pour ouvrir les paramètres
             const settingsBtn = document.getElementById('settings-btn');
             if (settingsBtn) settingsBtn.addEventListener('click', () => this.showSettingsScreen());
-
-            const openSettingsBtn = document.getElementById('open-settings-btn');
-            if (openSettingsBtn) openSettingsBtn.addEventListener('click', () => this.showSettingsScreen());
 
             const settingsBackBtn = document.getElementById('settings-back-btn');
             if (settingsBackBtn) settingsBackBtn.addEventListener('click', () => this.showHomeScreen());
