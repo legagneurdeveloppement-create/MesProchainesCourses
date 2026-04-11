@@ -143,6 +143,7 @@
                     </button>
                     <div class="list-info">
                         <h1 id="list-title">Mes Prochaines Courses</h1>
+                        <span id="list-store" class="list-store" style="font-size: 0.9rem; color: var(--primary-light); display: block; font-weight: 500;"></span>
                         <span id="list-date" class="list-date"></span>
                     </div>
                 </div>
@@ -238,6 +239,22 @@
                 <div class="input-group">
                     <label for="new-list-description">Description (optionnel)</label>
                     <textarea id="new-list-description" placeholder="Description de votre liste..." maxlength="200"></textarea>
+                </div>
+                <div class="input-group">
+                    <label for="new-list-store">Magasin (optionnel)</label>
+                    <input type="text" id="new-list-store" list="stores-list" placeholder="Ex: E.Leclerc, Super U..." maxlength="50">
+                    <datalist id="stores-list">
+                        <option value="E.Leclerc"></option>
+                        <option value="Carrefour"></option>
+                        <option value="Intermarché"></option>
+                        <option value="Super U"></option>
+                        <option value="Auchan"></option>
+                        <option value="Lidl"></option>
+                        <option value="Aldi"></option>
+                        <option value="Grand Frais"></option>
+                        <option value="Cora"></option>
+                        <option value="Casino"></option>
+                    </datalist>
                 </div>
                 <div class="input-group">
                     <label for="new-list-color">Couleur</label>

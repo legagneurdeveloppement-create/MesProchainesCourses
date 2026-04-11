@@ -459,9 +459,9 @@ class ShoppingListApp {
                 <div class="list-icon ${isCompleted ? 'completed' : 'pending'}" ${customColorStyle}>
                     <i class="fas ${isCompleted ? 'fa-check' : 'fa-shopping-cart'}"></i>
                 </div>
-                <div class="list-info">
                     <div class="list-name">${this.escapeHtml(list.name)}</div>
                     ${list.description ? `<div class="list-desc" style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.2rem;">${this.escapeHtml(list.description)}</div>` : ''}
+                    ${list.store ? `<div class="list-store" style="font-size: 0.8rem; color: var(--primary-color); margin-bottom: 0.2rem;"><i class="fas fa-store" style="margin-right: 4px;"></i>${this.escapeHtml(list.store)}</div>` : ''}
                     <div class="list-count">${completedCount}/${totalCount} articles</div>
                 </div>
                 <div class="list-actions">
@@ -478,6 +478,13 @@ class ShoppingListApp {
         if (!this.currentList) return;
 
         document.getElementById('list-title').textContent = this.currentList.name;
+        
+        const storeElement = document.getElementById('list-store');
+        if (storeElement) {
+            storeElement.textContent = this.currentList.store || '';
+            storeElement.style.display = this.currentList.store ? 'block' : 'none';
+        }
+
         const dateElement = document.getElementById('list-date');
         if (dateElement) {
             const date = new Date(this.currentList.updatedAt);
@@ -704,6 +711,8 @@ class ShoppingListApp {
         document.getElementById('new-list-name').value = '';
         const descEl = document.getElementById('new-list-description');
         if (descEl) descEl.value = '';
+        const storeEl = document.getElementById('new-list-store');
+        if (storeEl) storeEl.value = '';
         
         document.querySelectorAll('.color-option').forEach((opt, index) => {
             if (index === 0) opt.classList.add('active');
@@ -722,6 +731,8 @@ class ShoppingListApp {
         const name = document.getElementById('new-list-name').value.trim();
         const descEl = document.getElementById('new-list-description');
         const description = descEl ? descEl.value.trim() : '';
+        const storeEl = document.getElementById('new-list-store');
+        const store = storeEl ? storeEl.value.trim() : '';
         const activeColorOpt = document.querySelector('.color-option.active');
         const color = activeColorOpt ? activeColorOpt.dataset.color : '#4CAF50';
 
@@ -734,6 +745,7 @@ class ShoppingListApp {
             id: Date.now().toString(),
             name: name,
             description: description,
+            store: store,
             color: color,
             items: [],
             createdAt: new Date().toISOString(),
