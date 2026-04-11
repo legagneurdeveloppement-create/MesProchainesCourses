@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>Mes Prochaines Courses - Application de Liste de Courses Intelligente</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.css?v=4">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="icon" href="images/logo.png" type="image/png">
     <meta name="description" content="Application de liste de courses intelligente avec reconnaissance vocale, catégories et partage">
@@ -272,10 +272,10 @@
             </div>
             <div class="modal-body">
                 <div class="input-group">
-                    <label for="new-item-name">Nom de l'article ou Code-barres</label>
-                    <div style="display: flex; gap: 8px; width: 100%;">
-                        <input type="text" id="new-item-name" placeholder="Ex: Lait demi-écrémé" maxlength="100" style="flex: 1; min-width: 0;">
-                        <button type="button" id="scan-barcode-btn" class="btn btn-secondary" style="padding: 0 1rem; flex-shrink: 0;" title="Scanner un code-barres">
+                    <label for="new-item-name">Nom de l'article</label>
+                    <div style="position: relative; width: 100%; display: block;">
+                        <input type="text" id="new-item-name" placeholder="Ex: Lait demi-écrémé" maxlength="100" style="padding-right: 52px; width: 100%; box-sizing: border-box;">
+                        <button type="button" id="scan-barcode-btn" style="position: absolute; right: 4px; top: 50%; transform: translateY(-50%); background: var(--primary-light); color: var(--primary-dark); border: none; font-size: 1.1rem; width: 42px; height: 38px; border-radius: 6px; cursor: pointer; display: flex; align-items: center; justify-content: center; box-shadow: var(--shadow-sm); z-index: 2;" title="Scanner un code-barres">
                             <i class="fas fa-barcode"></i>
                         </button>
                     </div>
