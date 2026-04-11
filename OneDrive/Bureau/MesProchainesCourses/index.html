@@ -2,7 +2,7 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <title>Mes Prochaines Courses - Application de Liste de Courses Intelligente</title>
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
@@ -24,6 +24,7 @@
     <link rel="manifest" href="manifest.json">
     <meta name="apple-mobile-web-app-title" content="Mes Prochaines Courses">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://unpkg.com/html5-qrcode"></script>
 </head>
 
 <body>
@@ -271,8 +272,14 @@
             </div>
             <div class="modal-body">
                 <div class="input-group">
-                    <label for="new-item-name">Nom de l'article</label>
-                    <input type="text" id="new-item-name" placeholder="Ex: Lait demi-écrémé" maxlength="100">
+                    <label for="new-item-name">Nom de l'article ou Code-barres</label>
+                    <div style="display: flex; gap: 8px; width: 100%;">
+                        <input type="text" id="new-item-name" placeholder="Ex: Lait demi-écrémé" maxlength="100" style="flex: 1; min-width: 0;">
+                        <button type="button" id="scan-barcode-btn" class="btn btn-secondary" style="padding: 0 1rem; flex-shrink: 0;" title="Scanner un code-barres">
+                            <i class="fas fa-barcode"></i>
+                        </button>
+                    </div>
+                    <div id="reader" style="width: 100%; margin-top: 10px; display: none; border-radius: 8px; overflow: hidden; max-height: 300px;"></div>
                     <div class="suggestions" id="item-suggestions"></div>
                 </div>
                 <div class="input-row">

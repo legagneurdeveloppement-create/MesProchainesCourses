@@ -274,6 +274,9 @@ class ShoppingListApp {
             const voiceBtn = document.getElementById('voice-btn');
             if (voiceBtn) voiceBtn.addEventListener('click', () => this.toggleVoiceInput());
 
+            const scanBarcodeBtn = document.getElementById('scan-barcode-btn');
+            if (scanBarcodeBtn) scanBarcodeBtn.addEventListener('click', () => this.toggleScanner());
+
             const stopListeningBtn = document.getElementById('stop-listening');
             if (stopListeningBtn) stopListeningBtn.addEventListener('click', () => {
                 if (this.speechManager) this.speechManager.stopListening();
@@ -1038,12 +1041,89 @@ class ShoppingListApp {
         }
     }
 
+    // Scanner Code-barres
+    toggleScanner() {
+        if (!window.Html5Qrcode) {
+            this.showToast('Scanner de code-barres non chargé.', 'error');
+            return;
+        }
+        const readerDiv = document.getElementById('reader');
+        if (this.html5QrcodeScanner) {
+            this.stopScanner();
+        } else {
+            readerDiv.style.display = 'block';
+            this.html5QrcodeScanner = new Html5Qrcode("reader");
+            this.html5QrcodeScanner.start(
+                { facingMode: "environment" },
+                {
+                    fps: 10,
+                    qrbox: { width: 250, height: 250 }
+                },
+                (decodedText, decodedResult) => {
+                    this.onScanSuccess(decodedText, decodedResult);
+                },
+                (errorMessage) => {
+                    // Ignorer les erreurs frame par frame pour éviter le spam de console
+                }
+            ).catch(err => {
+                this.showToast("Erreur d'accès à la caméra.", "error");
+                readerDiv.style.display = 'none';
+            });
+        }
+    }
+
+    stopScanner() {
+        if (this.html5QrcodeScanner) {
+            this.html5QrcodeScanner.stop().then(() => {
+                this.html5QrcodeScanner.clear();
+                this.html5QrcodeScanner = null;
+                document.getElementById('reader').style.display = 'none';
+            }).catch(err => {
+                console.error("Failed to stop scanner", err);
+            });
+        }
+    }
+
+    async onScanSuccess(decodedText, decodedResult) {
+        this.stopScanner();
+        this.showToast("Code scanné: " + decodedText, "info");
+        document.getElementById('new-item-name').value = 'Recherche en cours...';
+        
+        try {
+            const response = await fetch(`https://world.openfoodfacts.org/api/v0/product/${decodedText}.json`);
+            const data = await response.json();
+            
+            if (data.status === 1) {
+                const product = data.product;
+                document.getElementById('new-item-name').value = product.product_name_fr || product.product_name || 'Produit inconnu';
+                
+                // Pré-sélection de catégorie si possible
+                document.getElementById('new-item-category').value = 'epicerie'; // par défaut
+                
+                // Focaliser le champ de prix pour le remplir
+                const priceInput = document.getElementById('new-item-price');
+                if (priceInput) priceInput.focus();
+                
+                this.showToast("Produit trouvé !", "success");
+            } else {
+                document.getElementById('new-item-name').value = '';
+                this.showToast("Produit introuvable dans la base OpenFoodFacts", "error");
+            }
+        } catch (error) {
+            document.getElementById('new-item-name').value = '';
+            this.showToast("Erreur lors de la recherche", "error");
+        }
+    }
+
     // Utilitaires
     showModal(modalId) {
         const el = document.getElementById(modalId);
         if (el) el.classList.remove('hidden');
     }
     hideModal(modalId) {
+        if (modalId === 'new-item-modal' && this.html5QrcodeScanner) {
+            this.stopScanner();
+        }
         const el = document.getElementById(modalId);
         if (el) el.classList.add('hidden');
     }

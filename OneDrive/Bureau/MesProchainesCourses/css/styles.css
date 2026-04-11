@@ -55,12 +55,17 @@
    ============================================= */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
+html, body {
+    overflow-x: hidden;
+    position: relative;
+    width: 100%;
+}
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: var(--background-color);
     color: var(--text-primary);
     line-height: 1.6;
-    overflow-x: hidden;
 }
 
 .hidden { display: none !important; }
@@ -76,10 +81,15 @@ body {
     top: 0; left: 0;
     width: 100%;
     transform: translateX(100%);
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, visibility 0s 0.3s;
     background: var(--background-color);
+    visibility: hidden;
 }
-.screen.active { transform: translateX(0); }
+.screen.active { 
+    transform: translateX(0); 
+    transition: transform 0.3s ease, visibility 0s 0s;
+    visibility: visible;
+}
 
 /* =============================================
    Header
@@ -497,11 +507,12 @@ body {
     padding: 0.7rem 0.9rem;
     border: 2px solid var(--border-color);
     border-radius: var(--border-radius-sm);
-    font-size: 0.95rem;
+    font-size: 16px;
     background: var(--surface-color);
     color: var(--text-primary);
     transition: var(--transition-fast);
     font-family: inherit;
+    box-sizing: border-box;
 }
 .input-group input:focus, .input-group textarea:focus, .input-group select:focus {
     outline: none;
