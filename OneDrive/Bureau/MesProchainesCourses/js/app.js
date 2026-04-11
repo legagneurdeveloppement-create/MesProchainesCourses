@@ -489,13 +489,16 @@ class ShoppingListApp {
         const container = document.getElementById('items-container');
         const categoriesContainer = document.getElementById('categories-view');
         const emptyState = document.getElementById('empty-list-state');
+        const fabContainer = document.querySelector('.fab-container');
 
         if (this.currentList.items.length === 0) {
             container.innerHTML = '';
             categoriesContainer.innerHTML = '';
             emptyState.classList.remove('hidden');
+            if (fabContainer) fabContainer.classList.add('hidden');
         } else {
             emptyState.classList.add('hidden');
+            if (fabContainer) fabContainer.classList.remove('hidden');
 
             if (this.currentView === 'categories') {
                 container.classList.add('hidden');
