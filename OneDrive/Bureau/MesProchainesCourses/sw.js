@@ -1,4 +1,4 @@
-const CACHE_NAME = 'mes-prochaines-courses-v2';
+const CACHE_NAME = 'mes-prochaines-courses-v4';
 const ASSETS = [
     './',
     './index.html',
@@ -39,7 +39,8 @@ self.addEventListener('fetch', (e) => {
     // Réseau d'abord pour les appels Supabase et CDN externes
     if (url.hostname.includes('supabase.co') ||
         url.hostname.includes('cdn.jsdelivr.net') ||
-        url.hostname.includes('cdnjs.cloudflare.com')) {
+        url.hostname.includes('cdnjs.cloudflare.com') ||
+        url.hostname.includes('unpkg.com')) {
         e.respondWith(
             fetch(e.request).catch(() => caches.match(e.request))
         );
