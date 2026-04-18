@@ -454,15 +454,24 @@ class ShoppingListApp {
         const isCompleted = totalCount > 0 && completedCount === totalCount;
         const customColorStyle = !isCompleted && list.color ? `style="background: ${list.color}"` : '';
 
+        // Calcul du budget total de la liste
+        const totalBudget = list.items.reduce((sum, item) => {
+            return sum + (parseFloat(item.price) || 0) * (parseInt(item.quantity) || 1);
+        }, 0);
+
         return `
             <div class="list-card" onclick="app.showListDetail(${JSON.stringify(list).replace(/"/g, '&quot;')})">
                 <div class="list-icon ${isCompleted ? 'completed' : 'pending'}" ${customColorStyle}>
                     <i class="fas ${isCompleted ? 'fa-check' : 'fa-shopping-cart'}"></i>
                 </div>
+                <div class="list-info">
                     <div class="list-name">${this.escapeHtml(list.name)}</div>
                     ${list.description ? `<div class="list-desc" style="font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 0.2rem;">${this.escapeHtml(list.description)}</div>` : ''}
                     ${list.store ? `<div class="list-store" style="font-size: 0.8rem; color: var(--primary-color); margin-bottom: 0.2rem;"><i class="fas fa-store" style="margin-right: 4px;"></i>${this.escapeHtml(list.store)}</div>` : ''}
-                    <div class="list-count">${completedCount}/${totalCount} articles</div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 4px;">
+                        <div class="list-count">${completedCount}/${totalCount} articles</div>
+                        ${totalBudget > 0 ? `<div class="list-budget" style="font-size: 0.85rem; font-weight: 600; color: var(--success-color); background: #e8f5e9; padding: 2px 8px; border-radius: 10px;">${totalBudget.toFixed(2).replace('.', ',')}€</div>` : ''}
+                    </div>
                 </div>
                 <div class="list-actions">
                     <button class="action-btn delete" onclick="event.stopPropagation(); app.showDeleteModal('${list.id}')">
@@ -702,8 +711,43 @@ class ShoppingListApp {
         const totalCount = this.currentList.items.length;
         const percentage = totalCount > 0 ? (completedCount / totalCount) * 100 : 0;
 
-        document.getElementById('progress-fill').style.width = `${percentage}%`;
-        document.getElementById('progress-text').textContent = `${completedCount}/${totalCount}`;
+        const progressFill = document.getElementById('progress-fill');
+        const progressText = document.getElementById('progress-text');
+        const progressPercent = document.getElementById('progress-percentage');
+
+        if (progressFill) progressFill.style.width = `${percentage}%`;
+        if (progressText) progressText.textContent = `${completedCount}/${totalCount} articles`;
+        if (progressPercent) progressPercent.textContent = `${Math.round(percentage)}%`;
+
+        // Calcul du budget
+        let totalBudget = 0;
+        let remainingBudget = 0;
+
+        this.currentList.items.forEach(item => {
+            const itemPrice = parseFloat(item.price) || 0;
+            const itemQty = parseInt(item.quantity) || 1;
+            const itemTotal = itemPrice * itemQty;
+            
+            totalBudget += itemTotal;
+            if (!item.completed) {
+                remainingBudget += itemTotal;
+            }
+        });
+
+        const totalBudgetEl = document.getElementById('total-budget');
+        const remainingBudgetEl = document.getElementById('remaining-budget');
+        const budgetInfoEl = document.getElementById('budget-info');
+
+        if (totalBudgetEl) totalBudgetEl.textContent = `${totalBudget.toFixed(2).replace('.', ',')}€`;
+        if (remainingBudgetEl) remainingBudgetEl.textContent = `${remainingBudget.toFixed(2).replace('.', ',')}€`;
+        
+        if (budgetInfoEl) {
+            if (totalBudget === 0) {
+                budgetInfoEl.style.display = 'none';
+            } else {
+                budgetInfoEl.style.display = 'flex';
+            }
+        }
     }
 
     // Modale de nouvelle liste
@@ -922,9 +966,20 @@ class ShoppingListApp {
     shareCurrentList() {
         if (!this.currentList) return;
 
+        // Calcul du budget pour le partage
+        let totalBudget = 0;
+        this.currentList.items.forEach(item => {
+            totalBudget += (parseFloat(item.price) || 0) * (parseInt(item.quantity) || 1);
+        });
+
         // Construire le texte de partage
         const date = new Date().toLocaleDateString('fr-FR');
-        let text = `# ${this.escapeHtml(this.currentList.name)}\nDate: ${date}\n\n`;
+        let text = `# ${this.currentList.name}\nDate: ${date}\n`;
+        if (totalBudget > 0) {
+            text += `Budget total estimé : ${totalBudget.toFixed(2).replace('.', ',')}€\n`;
+        }
+        text += '\n';
+
         const pending = this.currentList.items.filter(i => !i.completed);
         const done = this.currentList.items.filter(i => i.completed);
 
@@ -932,7 +987,8 @@ class ShoppingListApp {
             text += `--- À acheter (${pending.length}) ---\n`;
             pending.forEach(item => {
                 const qty = item.quantity ? `${item.quantity}${item.unit ? ' ' + item.unit : ''} ` : '';
-                text += `▢ ${qty}${item.name}\n`;
+                const priceSnippet = item.price ? ` (${(item.price * (item.quantity || 1)).toFixed(2).replace('.', ',')}€)` : '';
+                text += `▢ ${qty}${item.name}${priceSnippet}\n`;
             });
         }
         if (done.length > 0) {
