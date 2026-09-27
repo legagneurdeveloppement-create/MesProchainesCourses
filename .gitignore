@@ -1,0 +1,46 @@
+# Dépendances
+node_modules/
+package-lock.json
+yarn.lock
+bun.lockb
+
+# Fichiers de build
+dist/
+build/
+.next/
+.vercel/
+
+# Variables d'environnement
+.env
+.env.local
+.env.*.local
+
+# Fichiers de log
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dossiers système (TRÈS IMPORTANT pour ne pas fuiter vos données)
+AppData/
+OneDrive/
+Downloads/
+.idea/
+.vscode/
+*.tmp
+*.bak
+
+# Cache
+.cache/
+.parcel-cache/
+__pycache__/
+*.pyc
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+*.swp
+*.swo
+*~
