@@ -1,0 +1,191 @@
+/* VARIABLES CSS GLOBALES */
+:root {
+    --primary-color: #9C27B0; /* Violet principal (Primary Brand Color) */
+    --primary-dark: #6A1B9A; /* Violet plus foncé */
+    --text-primary: #333;
+    --text-secondary: #6c757d;
+    --bg-light: #f8f9fa;
+    --border-color: #dee2e6;
+    --error-color: #dc3545;
+    --success-color: #28a745;
+}
+
+/* BASE & RESET */
+* {
+    box-sizing: border-box;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--bg-light);
+}
+
+/* HEADER ET MISE EN PAGE */
+.app-header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 1rem 0;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 1rem;
+    max-width: 90%; /* Constraint responsive */
+}
+
+/* CONTAINER PRINCIPAL */
+.app-container {
+    max-width: 850px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+/* FORMULAIRE D'AJOUT (INPUT AREA) */
+#add-item-form {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 2rem;
+    background: white;
+    padding: 1.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+}
+
+#item-input {
+    flex-grow: 1;
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    font-size: 1rem;
+}
+
+/* BOUTONS GÉNÉRAUX */
+button {
+    cursor: pointer;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+/* Bouton Principal (Add) */
+#add-button {
+    background-color: var(--primary-color);
+    color: white;
+    white-space: nowrap;
+}
+
+    #add-button:hover {
+        background-color: var(--primary-dark);
+    }
+
+/* Bouton Vocaux (Speech) */
+#speech-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 2rem;
+}
+
+#speech-button {
+    background-color: #ccc;
+    color: var(--text-primary);
+    font-size: 1rem; /* Make it look like an icon button */
+}
+
+    /* État en écoute */
+    #speech-button.listening {
+        background-color: #ff9800; /* Orange vif quand l'écoute est active */
+        box-shadow: 0 0 15px rgba(255, 152, 0, 0.6);
+    }
+
+
+/* LISTE DES TÂCHES */
+#task-list {
+    list-style: none;
+    padding: 0;
+}
+
+/* ITEM UNIQUE DE LA LISTE */
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1rem;
+    margin-bottom: 10px;
+    background: white;
+    border-left: 5px solid var(--primary-color);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+}
+
+    .task-item:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+/* Statut (Terminé) */
+.completed .task-text {
+    text-decoration: line-through;
+    color: var(--text-secondary);
+}
+
+/* Contenu du texte de la tâche */
+.task-details {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.task-text {
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.due-date {
+    font-size: 0.9em;
+    color: var(--text-secondary);
+}
+
+
+/* BOUTON DE SUPPRESSION */
+.delete-button {
+    background-color: #e74c3c; /* Rouge doux */
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 15px;
+}
+
+    .delete-button:hover {
+        background-color: #c0392b;
+    }
+
+/* FEEDBACK & UTILISATION */
+.feedback-message {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 8px;
+    text-align: center;
+    background-color: #d4edda; /* Light green background for success feedback */
+    color: var(--success-color);
+    border: 1px solid var(--success-color);
+}
+
+/* Rendre l'UI plus agréable pour les espaces vides ou en mode mobile */
+@media (max-width: 600px) {
+    #add-item-form, #speech-section {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    button, #item-input {
+        width: 100%; /* Full width on mobile */
+    }
+}

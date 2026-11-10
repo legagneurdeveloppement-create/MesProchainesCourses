@@ -1,0 +1,209 @@
+﻿<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Politique de Confidentialité - Mes Prochaines Courses</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <style>
+        :root {
+            --primary-color: #9C27B0;
+            --primary-dark: #6A1B9A;
+            --primary-light: #f3e5f5;
+            --text-primary: #2d3748;
+            --text-secondary: #718096;
+            --border-color: #e2e8f0;
+        }
+
+        body {
+            background-color: #f7fafc;
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+        }
+
+        .privacy-container {
+            max-width: 860px;
+            margin: 2rem auto 4rem auto;
+            padding: 0 1rem;
+        }
+
+        .privacy-card {
+            background: white;
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            border: 1px solid var(--border-color);
+        }
+
+        .privacy-header {
+            border-bottom: 2px solid var(--primary-light);
+            padding-bottom: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .privacy-header h1 {
+            color: var(--primary-dark);
+            margin: 0 0 0.5rem 0;
+            font-size: 1.8rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .last-update {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+
+        .privacy-section {
+            margin-bottom: 2rem;
+        }
+
+        .privacy-section h2 {
+            color: var(--primary-dark);
+            font-size: 1.25rem;
+            margin: 1.5rem 0 0.75rem 0;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .privacy-section p {
+            margin: 0.5rem 0 1rem 0;
+            color: #4a5568;
+        }
+
+        .permission-box {
+            background: #f8fafc;
+            border-left: 4px solid var(--primary-color);
+            padding: 1rem 1.25rem;
+            border-radius: 0 10px 10px 0;
+            margin: 1rem 0;
+        }
+
+        .permission-box h3 {
+            margin: 0 0 0.4rem 0;
+            font-size: 1.05rem;
+            color: var(--primary-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .permission-box p {
+            margin: 0;
+            font-size: 0.95rem;
+            color: #4a5568;
+        }
+
+        .back-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 2.5rem;
+            padding-top: 1.5rem;
+            border-top: 1px solid var(--border-color);
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .btn-link {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .btn-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .privacy-card {
+                padding: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header class="app-header">
+        <div class="header-content">
+            <div class="header-left">
+                <a href="index.html" class="back-btn" title="Retour" style="color: white; margin-right: 1rem; text-decoration: none; font-size: 1.2rem;">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                <div style="display: flex; align-items: center;">
+                    <img src="images/logo.png" alt="Logo" style="height: 34px; margin-right: 8px;">
+                    <h1 style="font-size: 1.3rem; margin: 0;">Mes Prochaines Courses</h1>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="privacy-container">
+        <div class="privacy-card">
+            <div class="privacy-header">
+                <h1><i class="fas fa-shield-alt"></i> Politique de Confidentialité</h1>
+                <p class="last-update">Dernière mise à jour : 20 Septembre 2026</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fas fa-info-circle"></i> 1. Introduction</h2>
+                <p>L'application <strong>Mes Prochaines Courses</strong> est conçue dans le respect total de votre vie privée. Cette politique de confidentialité explique en toute transparence comment nous traitons vos données et pourquoi certaines autorisations matérielles sont demandées.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fas fa-key"></i> 2. Autorisations de l'appareil (Permissions Android)</h2>
+                <p>Pour fournir ses fonctionnalités interactives, l'application peut vous demander l'accès à certaines fonctionnalités de votre smartphone :</p>
+
+                <div class="permission-box">
+                    <h3><i class="fas fa-microphone"></i> Microphone (Reconnaissance Vocale)</h3>
+                    <p><strong>Utilisation :</strong> Le micro est utilisé exclusivement lorsque vous appuyez sur le bouton vocal pour vous permettre de dicter vos articles de courses à voix haute.<br>
+                    <strong>Confidentialité :</strong> Aucun enregistrement audio n'est conservé, stocké ou transmis à des serveurs tiers. Le traitement vocal est opéré directement par le service de reconnaissance vocale de votre système d'exploitation.</p>
+                </div>
+
+                <div class="permission-box">
+                    <h3><i class="fas fa-camera"></i> Appareil Photo / Caméra (Scanner de Code-barres)</h3>
+                    <p><strong>Utilisation :</strong> La caméra est utilisée uniquement lorsque vous ouvrez le scanner de code-barres pour détecter le code produit sur un emballage.<br>
+                    <strong>Confidentialité :</strong> Aucune photo, vidéo ou image n'est enregistrée, sauvegardée ou transmise. L'analyse optique du code-barres s'exécute localement en direct.</p>
+                </div>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fas fa-database"></i> 3. Données collectées et Stockage</h2>
+                <p><strong>Stockage local :</strong> Par défaut, toutes vos listes de courses, articles, catégories et préférences sont stockés exclusivement en local sur votre appareil via le mécanisme <em>LocalStorage</em> de votre navigateur.</p>
+                <p><strong>Synchronisation Cloud optionnelle (Supabase) :</strong> Si vous choisissez d'activer la synchronisation en saisissant un code de partage, vos listes sont transmises de manière chiffrée et sécurisée à notre base de données hébergée chez Supabase pour permettre la synchronisation entre vos différents appareils. Ces données sont anonymes et liées uniquement au code que vous avez défini.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fas fa-user-lock"></i> 4. Absence de traqueurs et de revente</h2>
+                <p>Nous ne vendons, ne louons et ne partageons aucune de vos données personnelles à des régies publicitaires ou à des tiers. L'application ne contient aucun tracker publicitaire intrusif.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fas fa-user-shield"></i> 5. Vos droits (RGPD)</h2>
+                <p>Conformément au Règlement Général sur la Protection des Données (RGPD), vous disposez à tout moment d'un droit d'accès, de rectification et de suppression totale de vos données. Pour supprimer vos données locales, il vous suffit de vider les données de votre application ou navigateur, ou de supprimer vos listes directement dans l'interface.</p>
+            </div>
+
+            <div class="privacy-section">
+                <h2><i class="fas fa-envelope"></i> 6. Contact</h2>
+                <p>Pour toute question concernant cette politique de confidentialité ou l'utilisation de l'application, vous pouvez nous contacter via la page des mentions légales ou par email.</p>
+            </div>
+
+            <div class="back-nav">
+                <a href="index.html" class="btn-link"><i class="fas fa-arrow-left"></i> Retour à l'application</a>
+                <a href="mode-d-emploi.html" class="btn-link"><i class="fas fa-book-open"></i> Mode d'emploi</a>
+                <a href="mentions-legales.html" class="btn-link"><i class="fas fa-gavel"></i> Mentions Légales</a>
+            </div>
+        </div>
+    </main>
+     <!-- AppToolbar LEGAGNEUR DÉVELOPPEMENT -->
+     <script src="app-toolbar.js"></script>
+</body>
+</html>

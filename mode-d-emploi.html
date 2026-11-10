@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mode d'emploi & Guide - Mes Prochaines Courses</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="icon" href="images/logo.png" type="image/png">
+    <style>
+        :root {
+            --guide-primary: #9C27B0;
+            --guide-dark: #6A1B9A;
+            --guide-light: #f3e5f5;
+            --guide-accent: #ff9800;
+            --guide-success: #28a745;
+            --guide-bg-card: #ffffff;
+            --guide-border: #e2e8f0;
+            --guide-text: #2d3748;
+            --guide-text-muted: #718096;
+        }
+
+        body {
+            background-color: #f7fafc;
+            color: var(--guide-text);
+            line-height: 1.6;
+        }
+
+        .guide-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 1.5rem 1rem 3rem 1rem;
+        }
+
+        /* En-tête héro du guide */
+        .guide-hero {
+            background: linear-gradient(135deg, var(--guide-primary), var(--guide-dark));
+            color: white;
+            padding: 2.5rem 1.5rem;
+            border-radius: 16px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 25px rgba(156, 39, 176, 0.25);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .guide-hero h1 {
+            margin: 0 0 0.5rem 0;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+
+        .guide-hero p {
+            margin: 0;
+            font-size: 1.1rem;
+            opacity: 0.95;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .guide-actions {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .guide-btn {
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            border: 1px solid rgba(255, 255, 255, 0.4);
+            padding: 0.6rem 1.2rem;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.2s ease;
+            backdrop-filter: blur(5px);
+            cursor: pointer;
+        }
+
+        .guide-btn:hover {
+            background: white;
+            color: var(--guide-dark);
+            transform: translateY(-2px);
+        }
+
+        /* Sommaire rapide */
+        .toc-card {
+            background: white;
+            border-radius: 14px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--guide-border);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+        }
+
+        .toc-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--guide-dark);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .toc-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 0.75rem;
+        }
+
+        .toc-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1rem;
+            background: #f8fafc;
+            border-radius: 10px;
+            color: var(--guide-text);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: all 0.2s ease;
+            border: 1px solid transparent;
+        }
+
+        .toc-link:hover {
+            background: var(--guide-light);
+            color: var(--guide-dark);
+            border-color: rgba(156, 39, 176, 0.2);
+            transform: translateX(4px);
+        }
+
+        .toc-link i {
+            color: var(--guide-primary);
+            font-size: 1.1rem;
+            width: 20px;
+            text-align: center;
+        }
+
+        /* Sections du guide */
+        .guide-section {
+            background: white;
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--guide-border);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+            scroll-margin-top: 80px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 1rem;
+            border-bottom: 2px solid var(--guide-light);
+        }
+
+        .section-icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 12px;
+            background: var(--guide-light);
+            color: var(--guide-primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            flex-shrink: 0;
+        }
+
+        .section-title {
+            margin: 0;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--guide-dark);
+        }
+
+        .section-subtitle {
+            margin: 0.25rem 0 0 0;
+            color: var(--guide-text-muted);
+            font-size: 0.9rem;
+        }
+
+        /* Éléments de contenu */
+        .step-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            gap: 1.25rem;
+        }
+
+        .step-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+
+        .step-number {
+            background: var(--guide-primary);
+            color: white;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            font-size: 0.85rem;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+
+        .step-content {
+            flex-grow: 1;
+        }
+
+        .step-content h4 {
+            margin: 0 0 0.35rem 0;
+            font-size: 1.05rem;
+            color: var(--guide-text);
+        }
+
+        .step-content p {
+            margin: 0;
+            color: var(--guide-text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* Boîtes d'astuces & alertes */
+        .tip-box {
+            background: #fff8e1;
+            border-left: 4px solid var(--guide-accent);
+            padding: 1rem 1.25rem;
+            border-radius: 0 10px 10px 0;
+            margin: 1.25rem 0;
+            display: flex;
+            gap: 0.75rem;
+            align-items: flex-start;
+        }
+
+        .tip-box.info {
+            background: #e3f2fd;
+            border-left-color: #2196f3;
+        }
+
+        .tip-box.success {
+            background: #e8f5e9;
+            border-left-color: var(--guide-success);
+        }
+
+        .tip-box i {
+            font-size: 1.2rem;
+            margin-top: 2px;
+        }
+
+        .tip-box.info i { color: #1976d2; }
+        .tip-box i { color: #f57c00; }
+        .tip-box.success i { color: var(--guide-success); }
+
+        .tip-text {
+            margin: 0;
+            font-size: 0.9rem;
+            color: #4a5568;
+        }
+
+        .tip-text strong {
+            color: #1a202c;
+        }
+
+        /* Grille de fonctionnalités */
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1rem;
+            margin-top: 1.25rem;
+        }
+
+        .feature-card {
+            background: #f8fafc;
+            border: 1px solid var(--guide-border);
+            border-radius: 12px;
+            padding: 1.25rem;
+            transition: all 0.2s ease;
+        }
+
+        .feature-card:hover {
+            border-color: var(--guide-primary);
+            background: white;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+        }
+
+        .feature-card h4 {
+            margin: 0 0 0.5rem 0;
+            color: var(--guide-dark);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 1rem;
+        }
+
+        .feature-card p {
+            margin: 0;
+            font-size: 0.9rem;
+            color: var(--guide-text-muted);
+        }
+
+        /* Badges de couleur */
+        .badge {
+            display: inline-block;
+            padding: 0.2rem 0.6rem;
+            border-radius: 12px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            background: var(--guide-light);
+            color: var(--guide-dark);
+        }
+
+        /* Pied de page */
+        .guide-footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid var(--guide-border);
+            color: var(--guide-text-muted);
+            font-size: 0.9rem;
+        }
+
+        .guide-footer a {
+            color: var(--guide-primary);
+            text-decoration: none;
+            font-weight: 600;
+        }
+
+        .guide-footer a:hover {
+            text-decoration: underline;
+        }
+
+        /* Mode impression */
+        @media print {
+            .app-header, .guide-actions, .toc-card, .guide-footer a.back-btn {
+                display: none !important;
+            }
+            body {
+                background: white;
+                color: black;
+            }
+            .guide-section {
+                border: 1px solid #ccc;
+                box-shadow: none;
+                page-break-inside: avoid;
+            }
+            .guide-hero {
+                background: none;
+                color: black;
+                border-bottom: 2px solid #333;
+                box-shadow: none;
+                padding: 1rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- En-tête de navigation -->
+    <header class="app-header">
+        <div class="header-content">
+            <div class="header-left">
+                <a href="index.html" class="back-btn" title="Retour à l'application" style="color: white; margin-right: 1rem; text-decoration: none; font-size: 1.2rem;">
+                    <i class="fas fa-arrow-left"></i>
+                </a>
+                <div style="display: flex; align-items: center;">
+                    <img src="images/logo.png" alt="Logo" style="height: 34px; margin-right: 8px;">
+                    <h1 style="font-size: 1.3rem; margin: 0;">Mes Prochaines Courses</h1>
+                </div>
+            </div>
+            <div class="header-right">
+                <button onclick="window.print()" class="header-btn" title="Imprimer le guide" style="background: none; border: none; color: white; font-size: 1.2rem; cursor: pointer;">
+                    <i class="fas fa-print"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="guide-container">
+        <!-- Bannière Héros -->
+        <div class="guide-hero">
+            <h1><i class="fas fa-book-open"></i> Mode d'emploi & Guide</h1>
+            <p>Découvrez toutes les astuces et fonctionnalités pour organiser vos courses simplement, rapidement et efficacement.</p>
+            <div class="guide-actions">
+                <a href="index.html" class="guide-btn"><i class="fas fa-arrow-left"></i> Retour à mes listes</a>
+                <button onclick="window.print()" class="guide-btn"><i class="fas fa-print"></i> Imprimer ce guide</button>
+            </div>
+        </div>
+
+        <!-- Sommaire interactif -->
+        <nav class="toc-card" aria-label="Sommaire du guide">
+            <div class="toc-title">
+                <i class="fas fa-list-ul"></i> Sommaire rapide
+            </div>
+            <div class="toc-grid">
+                <a href="#section-1" class="toc-link"><i class="fas fa-play-circle"></i> 1. Prise en main rapide</a>
+                <a href="#section-2" class="toc-link"><i class="fas fa-cart-plus"></i> 2. Gestion des articles</a>
+                <a href="#section-3" class="toc-link"><i class="fas fa-microphone"></i> 3. Dictée vocale</a>
+                <a href="#section-4" class="toc-link"><i class="fas fa-barcode"></i> 4. Scanner de code-barres</a>
+                <a href="#section-5" class="toc-link"><i class="fas fa-coins"></i> 5. Budget & Magasins</a>
+                <a href="#section-6" class="toc-link"><i class="fas fa-share-alt"></i> 6. Partage & Synchronisation</a>
+                <a href="#section-7" class="toc-link"><i class="fas fa-mobile-alt"></i> 7. Installation smartphone</a>
+            </div>
+        </nav>
+
+        <!-- SECTION 1 : Prise en main rapide -->
+        <section id="section-1" class="guide-section">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-play"></i></div>
+                <div>
+                    <h2 class="section-title">1. Premiers pas & Prise en main rapide</h2>
+                    <p class="section-subtitle">Créez et organisez vos listes de courses en quelques secondes</p>
+                </div>
+            </div>
+
+            <div class="step-list">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Créer une nouvelle liste</h4>
+                        <p>Depuis l'écran d'accueil, cliquez sur le gros bouton violet <strong>+</strong> en bas à droite (ou sur <em>« Créer une liste »</em>).</p>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Personnaliser la liste</h4>
+                        <p>Donnez-lui un nom (ex: <em>Courses du weekend</em>), associez un magasin (ex: <em>E.Leclerc, Super U, Carrefour...</em>) et choisissez une couleur pour la repérer d'un coup d'œil.</p>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Dupliquer, modifier ou supprimer</h4>
+                        <p>Faites un clic droit ou un appui long sur une carte de liste pour ouvrir le <strong>menu contextuel</strong>. L'option <strong>Dupliquer</strong> est idéale pour réutiliser une liste de courses récurrente sans tout retaper !</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-box info">
+                <i class="fas fa-info-circle"></i>
+                <p class="tip-text"><strong>Recherche et filtres :</strong> Utilisez la barre de recherche en haut de l'écran d'accueil pour retrouver instantanément une liste, ou filtrez par statut (<em>Toutes, En cours, Terminées</em>).</p>
+            </div>
+        </section>
+
+        <!-- SECTION 2 : Gestion des articles -->
+        <section id="section-2" class="guide-section">
+            <div class="section-header">
+                <div class="section-icon"><i class="fas fa-shopping-basket"></i></div>
+                <div>
+                    <h2 class="section-title">2. Gestion des articles & Mode Courses</h2>
+                    <p class="section-subtitle">Ajoutez vos produits et cochez-les facilement dans les rayons</p>
+                </div>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4><i class="fas fa-plus-circle" style="color:var(--guide-primary)"></i> Ajout détaillé</h4>
+                    <p>Renseignez la quantité, l'unité (<em>kg, g, L, pièce, bouteille, boîte...</em>), la catégorie de rayon et le prix estimé.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4><i class="fas fa-check" style="color:var(--guide-success)"></i> En magasin</h4>
+                    <p>Touchez simplement un article pour le barrer/cocher une fois déposé dans votre caddie physique.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4><i class="fas fa-tasks" style="color:var(--guide-accent)"></i> Barre de progression</h4>
+                    <p>Visualisez en direct le pourcentage d'articles récupérés et ce qu'il vous reste à acheter.</p>
+                </div>
+            </div>
+
+            <div class="tip-box success">
+                <i class="fas fa-lightbulb"></i>
+                <p class="tip-text"><strong>Organisation par catégories :</strong> L'application classe automatiquement vos articles par rayon (<em>Fruits & Légumes, Produits Laitiers, Épicerie...</em>) pour vous éviter les allers-retours inutiles dans le magasin.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 3 : Dictée vocale -->
+        <section id="section-3" class="guide-section">
+            <div class="section-header">
+                <div class="section-icon" style="background:#fff3e0; color:#ff9800;"><i class="fas fa-microphone"></i></div>
+                <div>
+                    <h2 class="section-title">3. Dictée vocale intelligente</h2>
+                    <p class="section-subtitle">Ajoutez vos articles les mains libres, en parlant simplement</p>
+                </div>
+            </div>
+
+            <div class="step-list">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Activer le microphone</h4>
+                        <p>Touchez le bouton circulaire avec l'icône <strong>Microphone</strong> en bas de votre liste.</p>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Autoriser l'accès</h4>
+                        <p>Lors de la première utilisation, autorisez votre navigateur à accéder au microphone.</p>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4>Dicter naturellement</h4>
+                        <p>Prononcez distinctement vos articles (ex: <em>« 6 œufs frais »</em>, <em>« 1 kilo de bananes »</em> ou <em>« Lessive liquide »</em>). Le texte est automatiquement reconnu et prêt à être validé.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tip-box">
+                <i class="fas fa-bolt"></i>
+                <p class="tip-text"><strong>Astuce gain de temps :</strong> Vous pouvez dicter plusieurs articles d'affilée en faisant de courtes pauses entre chaque mot.</p>
+            </div>
+        </section>
+
+        <!-- SECTION 4 : Scanner de code-barres -->
+        <section id="section-4" class="guide-section">
+            <div class="section-header">
+                <div class="section-icon" style="background:#e8f5e9; color:#28a745;"><i class="fas fa-barcode"></i></div>
+                <div>
+                    <h2 class="section-title">4. Scanner de code-barres intégré</h2>
+                    <p class="section-subtitle">Scannez directement vos emballages de produits vides avant de partir</p>
+                </div>
+            </div>
+
+            <p>Vous avez fini un paquet de café ou une brique de lait ? Ne perdez pas de temps à le taper :</p>
+
+            <div class="step-list">
+                <div class="step-item">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4>Ouvrir le scanner</h4>
+                        <p>Dans la fenêtre d'ajout d'article, cliquez sur la petite icône <strong>Code-barres <i class="fas fa-barcode"></i></strong> située à droite du champ de saisie.</p>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4>Viser le code-barres</h4>
+                        <p>Placez le code-barres du produit devant la caméra de votre téléphone. L'appareil photo détecte le code automatiquement en une fraction de seconde.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 5 : Suivi du budget & Magasins -->
+        <section id="section-5" class="guide-section">
+            <div class="section-header">
+                <div class="section-icon" style="background:#fce4ec; color:#e91e63;"><i class="fas fa-wallet"></i></div>
+                <div>
+                    <h2 class="section-title">5. Suivi du Budget & Gestion multi-magasins</h2>
+                    <p class="section-subtitle">Maîtrisez vos dépenses et organisez vos achats par enseigne</p>
+                </div>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4><i class="fas fa-euro-sign" style="color:var(--guide-primary)"></i> Calcul en temps réel</h4>
+                    <p>En indiquant le prix estimé de vos articles, l'application calcule automatiquement le <strong>Budget total</strong> et le <strong>Reste à payer</strong> en fonction de ce que vous avez déjà mis dans votre panier.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4><i class="fas fa-store" style="color:var(--guide-dark)"></i> Rapport par magasin</h4>
+                    <p>Activez l'option <em>« Articles par magasin »</em> dans les <strong>Paramètres</strong> pour regrouper tous vos besoins par enseigne (Lidl, Super U, Biocoop...).</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 6 : Partage & Synchronisation -->
+        <section id="section-6" class="guide-section">
+            <div class="section-header">
+                <div class="section-icon" style="background:#e0f7fa; color:#00bcd4;"><i class="fas fa-sync-alt"></i></div>
+                <div>
+                    <h2 class="section-title">6. Partage & Synchronisation Cloud</h2>
+                    <p class="section-subtitle">Partagez votre liste avec votre famille ou synchronisez-la sur plusieurs appareils</p>
+                </div>
+            </div>
+
+            <div class="step-list">
+                <div class="step-item">
+                    <div class="step-number">A</div>
+                    <div class="step-content">
+                        <h4>Partage rapide par message (SMS / WhatsApp / Email)</h4>
+                        <p>Ouvrez votre liste et cliquez sur le bouton <strong>Partager <i class="fas fa-share"></i></strong> dans l'en-tête. Le texte complet de votre liste est généré avec les quantités et peut être copié en 1 clic pour être envoyé à un proche.</p>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">B</div>
+                    <div class="step-content">
+                        <h4>Synchronisation Cloud en temps réel (Code partagé)</h4>
+                        <p>Rendez-vous dans les <strong>Paramètres <i class="fas fa-cog"></i></strong>, saisissez un <strong>Code de synchronisation</strong> (ex: <em>familledurand2026</em>) et enregistrez. Entrez le même code sur le téléphone de votre conjoint(e) pour partager instantanément les listes !</p>
+                    </div>
+                </div>
+
+                <div class="step-item">
+                    <div class="step-number">C</div>
+                    <div class="step-content">
+                        <h4>Impression papier</h4>
+                        <p>Pour les amateurs du format papier, cliquez sur l'icône <strong>Imprimer <i class="fas fa-print"></i></strong> pour générer une version épurée et prête à être imprimée sur feuille A4.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION 7 : Installation smartphone -->
+        <section id="section-7" class="guide-section">
+            <div class="section-header">
+                <div class="section-icon" style="background:#ede7f6; color:#673ab7;"><i class="fas fa-mobile-screen-button"></i></div>
+                <div>
+                    <h2 class="section-title">7. Installation sur Smartphone (PWA) & Hors-ligne</h2>
+                    <p class="section-subtitle">Utilisez l'application comme une véritable appli mobile, même sans réseau</p>
+                </div>
+            </div>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4><i class="fab fa-android" style="color:#3ddc84"></i> Sur Android (Chrome)</h4>
+                    <p>Ouvrez le menu de Google Chrome (les 3 petits points verticaux en haut à droite) et appuyez sur <strong>« Installer l'application »</strong> ou <strong>« Ajouter à l'écran d'accueil »</strong>.</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4><i class="fab fa-apple" style="color:#000000"></i> Sur iPhone / iPad (Safari)</h4>
+                    <p>Ouvrez le site dans Safari, appuyez sur le bouton de partage <i class="fas fa-arrow-up-from-bracket"></i> en bas de l'écran, puis faites défiler et sélectionnez <strong>« Sur l'écran d'accueil »</strong>.</p>
+                </div>
+            </div>
+
+            <div class="tip-box success">
+                <i class="fas fa-wifi"></i>
+                <p class="tip-text"><strong>Fonctionne 100% hors-ligne :</strong> L'application reste entièrement fonctionnelle même dans les sous-sols de supermarchés sans connexion Internet 4G/5G. Vos données sont sauvegardées en toute sécurité sur votre appareil.</p>
+            </div>
+        </section>
+
+        <!-- Pied de page -->
+        <footer class="guide-footer">
+            <p><strong>Mes Prochaines Courses</strong> — Votre compagnon de courses intelligent et écologique.</p>
+            <p>
+                <a href="index.html" class="back-btn"><i class="fas fa-arrow-left"></i> Retour à l'application</a> &nbsp;|&nbsp;
+                <a href="politique-confidentialite.html">Confidentialité</a> &nbsp;|&nbsp;
+                <a href="mentions-legales.html">Mentions Légales</a>
+            </p>
+        </footer>
+    </main>
+    <!-- AppToolbar LEGAGNEUR DÉVELOPPEMENT -->
+    <script src="app-toolbar.js"></script>
+</body>
+</html>
