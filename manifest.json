@@ -1,17 +1,13 @@
-﻿{
-  "id": "/?source=pwa",
+{
   "name": "Mes Prochaines Courses",
-  "short_name": "Mes Courses",
-  "description": "Application intelligente de liste de courses avec reconnaissance vocale, scanner de code-barres, gestion de budget et synchronisation multi-appareils.",
+  "short_name": "Courses",
+  "description": "Application de liste de courses intelligente avec reconnaissance vocale, catégories et synchronisation",
   "start_url": "./index.html",
-  "scope": "./",
   "display": "standalone",
-  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
   "background_color": "#f8f9fa",
   "theme_color": "#9C27B0",
   "orientation": "portrait-primary",
-  "lang": "fr-FR",
-  "dir": "ltr",
+  "lang": "fr",
   "icons": [
     {
       "src": "images/logo.png",
@@ -26,15 +22,6 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["productivity", "shopping", "utilities"],
-  "shortcuts": [
-    {
-      "name": "Nouvelle liste",
-      "short_name": "Créer",
-      "description": "Créer rapidement une nouvelle liste de courses",
-      "url": "./index.html?action=new-list",
-      "icons": [{ "src": "images/logo.png", "sizes": "192x192" }]
-    }
-  ],
+  "categories": ["productivity", "shopping"],
   "screenshots": []
 }

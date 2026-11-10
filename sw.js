@@ -1,9 +1,7 @@
-const CACHE_NAME = 'mes-prochaines-courses-v7';
+const CACHE_NAME = 'mes-prochaines-courses-v6';
 const ASSETS = [
     './',
     './index.html',
-    './mode-d-emploi.html',
-    './politique-confidentialite.html',
     './mentions-legales.html',
     './manifest.json',
     './css/styles.css',
